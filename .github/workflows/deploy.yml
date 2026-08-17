@@ -28,6 +28,10 @@ jobs:
 
       - name: Install, build and upload
         uses: withastro/action@v3
+        with:
+          # Astro 7 megköveteli a Node 22.12+-t; az ubuntu-latest runner
+          # alapértelmezett Node verziója (20) ehhez már nem elég.
+          node-version: '22'
 
   deploy:
     needs: build
