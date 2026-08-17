@@ -1,0 +1,23 @@
+{
+  "name": "htgitacc-pages",
+  "version": "1.0.0",
+  "description": "Tibor (htgitacc) portfólió és bemutatkozó oldala — Astro alapú, GitHub Pages-re deployolva.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^7.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,48 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { siteConfig } from '../site.config';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const hobbies = await getEntry('hobbies', lang);
+const { Content } = hobbies ? await render(hobbies) : { Content: null };
+
+const title =
+  lang === 'hu'
+    ? `${t('hobbies.title')} — ${siteConfig.displayName}`
+    : `${t('hobbies.title')} — ${siteConfig.displayName}`;
+const description =
+  lang === 'hu'
+    ? 'Amivel munkán kívül szívesen foglalkozom.'
+    : 'What I enjoy doing outside of work.';
+---
+
+<BaseLayout title={title} description={description} path="/hobbies/">
+  <section class="container page-header">
+    <span class="eyebrow">{t('hobbies.eyebrow')}</span>
+    <h1>{t('hobbies.title')}</h1>
+  </section>
+
+  <section class="container page-content">
+    {hobbies?.data.draft && <span class="badge badge--draft">{t('badge.draft')}</span>}
+    {Content && <Content />}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-block: clamp(2rem, 4vw, 4rem) 0.5rem;
+  }
+  .page-content {
+    max-width: 42rem;
+    padding-bottom: 3rem;
+    color: var(--text-muted);
+  }
+  .page-content :global(p:first-of-type) {
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+</style>

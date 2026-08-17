@@ -1,0 +1,154 @@
+---
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { data } = project;
+
+const title = lang === 'hu' ? data.title_hu : data.title_en;
+const summary = lang === 'hu' ? data.summary_hu : data.summary_en;
+---
+
+<article class="project-card" class:list={{ 'is-wip': data.wip }}>
+  {data.image && (
+    <div class="project-media">
+      <img src={data.image} alt="" loading="lazy" />
+    </div>
+  )}
+
+  <div class="project-body">
+    <div class="project-heading">
+      <h3>{title}</h3>
+      {data.wip && <span class="badge badge--wip">{t('badge.wip')}</span>}
+    </div>
+
+    <p class="project-summary">{summary}</p>
+
+    {data.tech.length > 0 && (
+      <ul class="tech-list" aria-label={t('project.tech')}>
+        {data.tech.map((tech) => (
+          <li>{tech}</li>
+        ))}
+      </ul>
+    )}
+
+    <div class="project-links">
+      {data.repoUrls.map((url, i) => (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {data.repoUrls.length > 1 ? `${t('project.repo')} ${i + 1}` : t('project.repo')} ↗
+        </a>
+      ))}
+      {data.demoUrl && (
+        <a href={data.demoUrl} target="_blank" rel="noopener noreferrer" class="link-accent">
+          {t('project.demo')} ↗
+        </a>
+      )}
+      {data.pdfUrl && (
+        <a href={data.pdfUrl} target="_blank" rel="noopener noreferrer">
+          {t('project.pdf')} ↗
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  }
+
+  .project-card.is-wip {
+    border-style: dashed;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-inset);
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .project-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .project-heading h3 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .project-summary {
+    color: var(--text-muted);
+    margin: 0;
+    flex: 1;
+  }
+
+  .tech-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tech-list li {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--forest-strong);
+    background: color-mix(in srgb, var(--forest) 12%, var(--bg-elevated));
+    border-radius: 999px;
+    padding: 0.2em 0.65em;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .project-links a {
+    text-decoration: none;
+  }
+
+  .project-links a.link-accent {
+    color: var(--accent);
+  }
+</style>

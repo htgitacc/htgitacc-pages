@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { siteConfig } from '../site.config';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  return a.data.order - b.data.order;
+});
+
+const title = `${t('projects.title')} — ${siteConfig.displayName}`;
+const description =
+  lang === 'hu'
+    ? 'Publikus projektjeim és bemutatóim.'
+    : 'My public projects and showcases.';
+---
+
+<BaseLayout title={title} description={description} path="/projects/">
+  <section class="container page-header">
+    <span class="eyebrow">{t('projects.eyebrow')}</span>
+    <h1>{t('projects.title')}</h1>
+    <p class="intro">{t('projects.intro')}</p>
+  </section>
+
+  <section class="container projects-grid">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-block: clamp(2rem, 4vw, 4rem) 1rem;
+    max-width: 42rem;
+  }
+  .intro {
+    color: var(--text-muted);
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+  }
+</style>

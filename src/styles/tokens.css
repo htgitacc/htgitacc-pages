@@ -1,0 +1,99 @@
+/*
+  Design tokens — "Selyemút + hegyvidék"
+  Világos mód: rizspapír/selyem hangulat.
+  Sötét mód: tinta-fekete éjszakai hegy hangulat.
+  Az akcentszínek (cinóbervörös, arany) a selyemúti rétegből jönnek,
+  az alaptónusok (erdőzöld, szikla) a hegyvidéki rétegből.
+
+  Alapértelmezésben a rendszer téma-preferenciáját követi
+  (prefers-color-scheme). A ThemeToggle komponens ezt egy
+  html[data-theme="light"|"dark"] attribútummal és localStorage-dzsel
+  írja felül, ha a látogató kézzel választ.
+*/
+
+:root,
+:root[data-theme='light'] {
+  /* alap felület / szöveg — világos ("papír") */
+  --bg: #f6f1e6;
+  --bg-elevated: #fdfbf5;
+  --bg-inset: #efe8d8;
+  --text: #262019;
+  --text-muted: #6e6252;
+  --border: #e1d7bf;
+
+  /* akcent — selyemút */
+  --accent: #b23a2c; /* cinóbervörös */
+  --accent-strong: #8f2c22;
+  --accent-2: #ad8a35; /* tompított arany */
+
+  /* alap — hegyvidék */
+  --forest: #3c5b46;
+  --forest-strong: #2b4433;
+  --stone: #78806f;
+  --stone-soft: #a9ab98;
+
+  --shadow: 0 1px 2px rgba(38, 32, 25, 0.06), 0 8px 24px rgba(38, 32, 25, 0.06);
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  /* alap felület / szöveg — sötét ("éjszakai hegy / tinta") */
+  --bg: #15191a;
+  --bg-elevated: #1c2224;
+  --bg-inset: #101416;
+  --text: #ece5d6;
+  --text-muted: #a49a87;
+  --border: #2a3132;
+
+  /* akcent — selyemút (sötéten kicsit emeltebb fényerővel) */
+  --accent: #e0684a;
+  --accent-strong: #ef7c5c;
+  --accent-2: #d3b15f;
+
+  /* alap — hegyvidék (ködös, letompított) */
+  --forest: #6f9781;
+  --forest-strong: #8bb499;
+  --stone: #8f978a;
+  --stone-soft: #57605a;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+
+  color-scheme: dark;
+}
+
+/* rendszer sötét preferencia, ha a látogató még nem választott kézzel */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #15191a;
+    --bg-elevated: #1c2224;
+    --bg-inset: #101416;
+    --text: #ece5d6;
+    --text-muted: #a49a87;
+    --border: #2a3132;
+
+    --accent: #e0684a;
+    --accent-strong: #ef7c5c;
+    --accent-2: #d3b15f;
+
+    --forest: #6f9781;
+    --forest-strong: #8bb499;
+    --stone: #8f978a;
+    --stone-soft: #57605a;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+
+    color-scheme: dark;
+  }
+}
+
+:root {
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --max-width: 68rem;
+}

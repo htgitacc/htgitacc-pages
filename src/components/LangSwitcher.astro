@@ -1,0 +1,39 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  lang: Locale;
+  /** az aktuális oldal útvonala locale-prefix NÉLKÜL, pl. '/', '/hobbies/', '/projects/' */
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const targetLang: Locale = lang === 'hu' ? 'en' : 'hu';
+const href = getRelativeLocaleUrl(targetLang, path);
+---
+
+<a class="lang-switch" href={href} hreflang={targetLang}>
+  {t('lang.switch')}
+</a>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    height: 2.25rem;
+    padding-inline: 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .lang-switch:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>

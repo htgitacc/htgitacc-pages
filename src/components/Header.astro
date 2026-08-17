@@ -1,0 +1,110 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { siteName } from '../i18n/ui';
+import ThemeToggle from './ThemeToggle.astro';
+import LangSwitcher from './LangSwitcher.astro';
+
+interface Props {
+  /** locale-prefix nélküli útvonal az aktuális oldalhoz, a nyelvváltóhoz kell */
+  path: string;
+}
+const { path } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navItems = [
+  { key: 'nav.home', href: getRelativeLocaleUrl(lang, '/') },
+  { key: 'nav.hobbies', href: getRelativeLocaleUrl(lang, '/hobbies/') },
+  { key: 'nav.projects', href: getRelativeLocaleUrl(lang, '/projects/') },
+] as const;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={getRelativeLocaleUrl(lang, '/')}>
+      <span class="brand-mark" aria-hidden="true"></span>
+      {siteName}
+    </a>
+
+    <nav class="site-nav" aria-label="Fő navigáció">
+      {navItems.map((item) => (
+        <a href={item.href}>{t(item.key)}</a>
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <LangSwitcher lang={lang} path={path} />
+      <ThemeToggle lang={lang} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 0.9rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .brand-mark {
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--forest));
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .site-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .site-nav a:hover {
+    color: var(--accent);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 640px) {
+    .site-nav {
+      gap: 0.85rem;
+    }
+    .header-inner {
+      flex-wrap: wrap;
+      row-gap: 0.6rem;
+    }
+  }
+</style>

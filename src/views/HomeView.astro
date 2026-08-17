@@ -1,0 +1,109 @@
+---
+import { getEntry, render } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { siteConfig } from '../site.config';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const about = await getEntry('about', lang);
+const { Content } = about ? await render(about) : { Content: null };
+
+const title =
+  lang === 'hu'
+    ? `${siteConfig.displayName} — bemutatkozás`
+    : `${siteConfig.displayName} — introduction`;
+const description =
+  lang === 'hu'
+    ? `${siteConfig.displayName} bemutatkozó oldala: rólam, hobbik, publikus projektek.`
+    : `${siteConfig.displayName}'s introduction site: about me, hobbies, public projects.`;
+---
+
+<BaseLayout title={title} description={description} path="/">
+  <section class="container hero">
+    <span class="eyebrow">{t('home.eyebrow')}</span>
+    <h1>{siteConfig.displayName}</h1>
+
+    <div class="bio">
+      {about?.data.draft && <span class="badge badge--draft">{t('badge.draft')}</span>}
+      {Content && <Content />}
+    </div>
+
+    <div class="hero-actions">
+      <a class="button button-primary" href={getRelativeLocaleUrl(lang, '/projects/')}>
+        {t('home.cta.projects')}
+      </a>
+      {siteConfig.linkedinUrl && (
+        <a
+          class="button button-ghost"
+          href={siteConfig.linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t('home.cta.linkedin')} ↗
+        </a>
+      )}
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="thread-divider"></div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 6vw, 6rem) 1rem;
+    max-width: 42rem;
+  }
+
+  .bio {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .bio :global(p:first-of-type) {
+    color: var(--text);
+    font-size: 1.15rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.7em 1.3em;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+  }
+
+  .button-primary {
+    background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+    color: #fff8ef;
+  }
+
+  .button-ghost {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .button-ghost:hover {
+    border-color: var(--forest);
+    color: var(--forest-strong);
+  }
+</style>

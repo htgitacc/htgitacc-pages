@@ -1,0 +1,41 @@
+---
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {year} htgitacc — {t('footer.rights')}</p>
+    <a href="https://github.com/htgitacc/htgitacc-pages" target="_blank" rel="noopener noreferrer">
+      {t('footer.source')} ↗
+    </a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-block: 1.75rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-inner a {
+    color: var(--text-muted);
+  }
+
+  .footer-inner a:hover {
+    color: var(--accent);
+  }
+</style>
