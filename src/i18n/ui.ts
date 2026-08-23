@@ -20,6 +20,10 @@ export const ui = {
     'projects.eyebrow': 'Amin dolgoztam',
     'projects.intro':
       'Publikus repók és bemutatók a saját projektjeimből — némelyik éles alkalmazás, némelyik showcase.',
+    'projects.focus':
+      'Az utóbbi pár hónapban azzal foglalkoztam, hogy egy agilis szakember (Scrum Master, Product Owner, projektmenedzser) mindennapjaiban milyen valódi lehetőségeket nyit meg az AI: hol gyorsítja és könnyíti meg a munkát, és tényleg teremt-e mérhető értéket. Elég egy jó prompt, vagy inkább egy célzott, egyszerű alkalmazásra van szükség? Mindkettő spórolhat időt — de ha a folyamatok nincsenek egymásra építve, ellenőrizve, dokumentálva és emberi jóváhagyással kísérve, a felgyorsult munka könnyen kaotikussá válik, és felemészti a megspórolt időt. Az alábbi projektek ezt az utat mutatják be: olyan folyamatok, alkalmazások és ötletek megvalósítását, ahol megmarad a folyamatos értékteremtés — és a megspórolt idővel végre szabadon rendelkezhetünk.',
+    'projects.wip':
+      'Az oldal még épül — egyelőre a projektek bemutatására koncentrálunk.',
     'project.repo': 'Repó',
     'project.repos': 'Repók',
     'project.demo': 'Élő demó',
@@ -45,6 +49,9 @@ export const ui = {
     'projects.eyebrow': "What I've been building",
     'projects.intro':
       'Public repos and write-ups from my own projects — some are live apps, some are showcases.',
+    'projects.focus':
+      "Over the past few months I've been exploring what AI genuinely offers an agile practitioner — Scrum Master, Product Owner, or project manager: where it actually speeds things up, where it lightens the workload, and whether it creates real, measurable value. Is a good prompt enough, or does it take a focused, purpose-built application? Both can save time — but without workflows that build on each other, get checked, documented, and kept under human sign-off, that speed quickly turns chaotic and eats back the time it saved. The projects below trace that path: processes, apps, and ideas built to keep creating real value — so the time saved is genuinely ours to spend.",
+    'projects.wip': 'This site is still under construction — for now the focus is on showcasing the projects.',
     'project.repo': 'Repo',
     'project.repos': 'Repos',
     'project.demo': 'Live demo',

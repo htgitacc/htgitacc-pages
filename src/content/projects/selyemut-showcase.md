@@ -14,7 +14,7 @@ summary_en: >
 tech: ["Astro 5", "Cloudflare Workers", "Decap CMS"]
 repoUrls: ["https://github.com/htgitacc/selyemut-showcase"]
 demoUrl: "https://selyemut-negy-szala.htgitacc.workers.dev"
-pdfUrl: null
+pdfUrls: []
 image: null
 featured: true
 wip: false

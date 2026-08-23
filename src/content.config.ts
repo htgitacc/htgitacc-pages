@@ -34,8 +34,9 @@ const projects = defineCollection({
     // egy projekthez több repo is tartozhat (pl. app + automatizációs workflow)
     repoUrls: z.array(z.string().url()).min(1),
     demoUrl: z.string().url().nullable().default(null),
-    // opcionális letölthető anyag (pl. bemutató PDF)
-    pdfUrl: z.string().url().nullable().default(null),
+    // opcionális letölthető anyag(ok) (pl. bemutató PDF-ek) — tömb, mert
+    // egy projekthez több PDF is tartozhat (l. pace-showcase.md)
+    pdfUrls: z.array(z.string().url()).default([]),
     // opcionális screenshot/kép a public/assets/projects/<slug>/ alól
     image: z.string().nullable().default(null),
     // kiemelt projektek jelennek meg elöl / hangsúlyosabban

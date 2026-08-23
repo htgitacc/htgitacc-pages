@@ -17,18 +17,21 @@ belül frissül.
 
 | Mit akarok módosítani? | Melyik fájl(oka)t? |
 |---|---|
-| Bemutatkozó szöveg (bio) | `src/content/about/hu.md` és `en.md` |
-| Hobbik | `src/content/hobbies/hu.md` és `en.md` |
 | Egy meglévő projekt szövege/linkjei | `src/content/projects/<projekt>.md` |
 | Új publikus projekt hozzáadása | Új `.md` fájl a `src/content/projects/` alá (másolj egy meglévőt mintának) |
 | Projekt screenshot/kép | Kép fájl a `public/assets/projects/<slug>/` alá, majd a projekt `.md` fájljában az `image:` mező kitöltése (pl. `/assets/projects/my-anki/screenshot.png`) |
+| Bemutató PDF(ek) egy projekthez | A projekt `.md`-jében a `pdfUrls` tömb — `github.com/<user>/<repo>/blob/main/<fájl>` formátumú linkeket használj, a `raw.githubusercontent.com/...` linkek megbízhatatlannak bizonyultak |
 | Design/szín | `src/styles/tokens.css` |
-
-Amint elkészül a bio/hobbi végleges szövege, a fájl tetején lévő `draft: true` értéket
-állítsd `draft: false`-ra — ez tünteti el az oldalon az "vázlat szöveg" jelzést.
+| Bevezető szöveg a Projektek lapon | `src/i18n/ui.ts` → `projects.intro` / `projects.focus` kulcsok (HU+EN) |
 
 Egy projektkártyán a `wip: true` egy "folyamatban" jelzést tesz ki (pl. amíg a képek
 feltöltése zajlik) — állítsd `false`-ra, ha a kártya készen van.
+
+> A `src/content/about/` és `src/content/hobbies/` fájlok (bio, hobbik) megvannak, de
+> jelenleg nincs hozzájuk tartozó route a `src/pages/`-ben — a Projektek lap (`/`) az
+> egyetlen aktív oldal. Ha visszahoznánk egy "Rólam" oldalt, ehhez elég egy
+> `src/pages/index.astro`-t (jelenleg a `ProjectsView`-t rendereli) visszaállítani a
+> `HomeView`-ra, és a Header nav-ját visszatölteni (l. `CLAUDE.md`).
 
 ## Fejlesztés helyben
 

@@ -1,5 +1,5 @@
 ---
-import ProjectsView from '../views/ProjectsView.astro';
+// A Projektek lap egyelőre a kezdőlap ('/') — ez a régi /projects/ URL-t
+// tartja életben, hogy a korábban megosztott linkek is működjenek.
+return Astro.redirect(import.meta.env.BASE_URL);
 ---
-
-<ProjectsView />

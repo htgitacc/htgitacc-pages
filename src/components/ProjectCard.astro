@@ -12,12 +12,19 @@ const { data } = project;
 
 const title = lang === 'hu' ? data.title_hu : data.title_en;
 const summary = lang === 'hu' ? data.summary_hu : data.summary_en;
+
+// A content-fájlokban az image mezőt base nélkül, gyökér-relatívan írjuk
+// (pl. '/assets/projects/my-anki/kep.jpg') — itt fűzzük hozzá a GitHub
+// Pages base-t ('/htgitacc-pages/'), hogy éles buildben is jó legyen a link.
+const imageSrc = data.image
+  ? `${import.meta.env.BASE_URL}${data.image.replace(/^\//, '')}`
+  : null;
 ---
 
 <article class="project-card" class:list={{ 'is-wip': data.wip }}>
-  {data.image && (
+  {imageSrc && (
     <div class="project-media">
-      <img src={data.image} alt="" loading="lazy" />
+      <img src={imageSrc} alt="" loading="lazy" />
     </div>
   )}
 
@@ -48,11 +55,11 @@ const summary = lang === 'hu' ? data.summary_hu : data.summary_en;
           {t('project.demo')} ↗
         </a>
       )}
-      {data.pdfUrl && (
-        <a href={data.pdfUrl} target="_blank" rel="noopener noreferrer">
-          {t('project.pdf')} ↗
+      {data.pdfUrls.map((url, i) => (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {data.pdfUrls.length > 1 ? `${t('project.pdf')} ${i + 1}` : t('project.pdf')} ↗
         </a>
-      )}
+      ))}
     </div>
   </div>
 </article>

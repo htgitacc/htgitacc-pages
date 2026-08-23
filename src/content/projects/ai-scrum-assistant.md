@@ -18,7 +18,7 @@ repoUrls:
   - "https://github.com/htgitacc/ai-scrum-assistant"
   - "https://github.com/htgitacc/ai-scrum-assistant-make-workflow"
 demoUrl: null
-pdfUrl: null
+pdfUrls: []
 image: null
 featured: true
 wip: false

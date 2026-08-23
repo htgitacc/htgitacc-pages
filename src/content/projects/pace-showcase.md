@@ -14,7 +14,12 @@ summary_en: >
 tech: ["Node.js", "LLM agent", "GitHub"]
 repoUrls: ["https://github.com/htgitacc/pace-showcase"]
 demoUrl: null
-pdfUrl: "https://github.com/htgitacc/pace-showcase/raw/main/PACE-bemutato-clientweb_projekt.pdf"
+# blob-nézet URL-ek (nem "raw"), mert a raw.githubusercontent.com útvonal
+# megbízhatatlannak bizonyult — ez a GitHub natív fájlnézete, letöltés-
+# gombbal. A pontos fájlneveket a usertől kaptam.
+pdfUrls:
+  - "https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_start.pdf"
+  - "https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_finish.pdf"
 image: null
 featured: true
 wip: false

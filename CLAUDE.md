@@ -56,25 +56,30 @@ htgitacc-pages/
 │   │   └── projects/
 │   │       ├── pace-showcase.md
 │   │       ├── selyemut-showcase.md
-│   │       ├── ai-scrum-assistant.md      # közös kártya: ai-scrum-assistant + ai-scrum-assistant-make-workflow repókra mutat
-│   │       └── my-anki-app-showcase.md    # wip: true — képek még hiányoznak
+│   │       ├── ai-scrum-assistant.md          # közös kártya: ai-scrum-assistant + ai-scrum-assistant-make-workflow repókra mutat
+│   │       ├── ai-sentiment-sd-showcase.md    # új, 4. kör
+│   │       └── my-anki-app-showcase.md        # wip: true — képek pontos elérési útja még hiányzik
 │   ├── site.config.ts        # displayName, githubProfileUrl, linkedinUrl (egyelőre null)
 │   ├── i18n/{ui.ts,utils.ts} # fordítási szótár + lang-detektálás
 │   ├── styles/{tokens.css,global.css}   # design tokenek (world/dark) + globális stílus
 │   ├── layouts/BaseLayout.astro         # <head>, fontok, anti-FOUC téma-script, Header+Footer
 │   ├── components/{Header,Footer,LangSwitcher,ThemeToggle,ProjectCard}.astro
-│   ├── views/{HomeView,HobbiesView,ProjectsView}.astro   # a tényleges oldal-logika, lang-agnosztikus
+│   ├── views/{HomeView,HobbiesView,ProjectsView}.astro   # HomeView/HobbiesView jelenleg nincs útvonalra kötve (l. lent)
 │   └── pages/
-│       ├── index.astro, hobbies.astro, projects.astro        (HU — alapértelmezett, prefix nélkül)
-│       └── en/index.astro, en/hobbies.astro, en/projects.astro
+│       ├── index.astro         # a ProjectsView-t rendereli — EZ a kezdőlap most (HU, prefix nélkül)
+│       ├── projects.astro      # statikus redirect a gyökérre (régi link kompatibilitás)
+│       └── en/index.astro, en/projects.astro   # ugyanaz EN-ben (/en/ prefix)
 ├── public/
 │   ├── favicon.svg
 │   └── assets/projects/      # ide kerülnek majd a projekt-screenshotok
-└── .github/workflows/deploy.yml   # push/workflow_dispatch/repository_dispatch → astro build → GitHub Pages deploy
+└── .github/workflows/deploy.yml   # push/workflow_dispatch/repository_dispatch → astro build → GitHub Pages deploy (Node 22 pinnelve)
 ```
 
 Az oldalak (`src/pages/**`) csak vékony wrapperek, a tényleges renderelés a `src/views/*View.astro`
-fájlokban van — ez tartja DRY-n a HU/EN duplikációt.
+fájlokban van — ez tartja DRY-n a HU/EN duplikációt. A `hobbies.astro` és a "Kezdőlap mint bio-oldal"
+route-ok (`HomeView`/`HobbiesView` felhasználásával) a 4. körben törlésre kerültek a `pages/`-ből —
+a nézet-fájlok és a hozzájuk tartozó content (`about/`, `hobbies/`) megmaradtak, csak nincs route
+ami kirenderelné őket. Ha visszahoznánk egy "Rólam" oldalt, ez gyors visszaállítás.
 
 **Projekt content-fájl séma (frontmatter) — a ténylegesen használt mezők:**
 
@@ -86,12 +91,17 @@ summary_en: "..."
 tech: ["Node.js", "LLM agent"]
 repoUrls: ["https://github.com/htgitacc/pace-showcase"]   # tömb — több repo is lehet (l. ai-scrum-assistant.md)
 demoUrl: null            # vagy URL string
-pdfUrl: null             # vagy URL string (l. pace-showcase.md — a bemutató PDF-hez)
+pdfUrls: []              # tömb — 0, 1 vagy több PDF (l. pace-showcase.md); blob/main/ URL-t használj, NEM raw/main/-ot (l. lent)
 image: null              # vagy '/assets/projects/<slug>/kep.png'
 featured: true
 wip: false                # true = "folyamatban" jelvény a kártyán (l. my-anki-app-showcase.md)
 order: 10                 # kisebb szám = előrébb, azonos featured-en belül
 ```
+
+**Fontos tapasztalat linkekhez**: a `raw.githubusercontent.com/<user>/<repo>/main/<fájl>` formátumú
+linkek egy PDF-nél megbízhatatlannak bizonyultak (404-et adtak, miközben a fájl létezett) — ehelyett
+a `github.com/<user>/<repo>/blob/main/<fájl>` "blob-nézet" URL-t használjuk, ami a GitHub natív
+fájlnézete (letöltés-gombbal), és megbízhatóbban működik.
 
 Design tokenek megvalósítva (`src/styles/tokens.css`): világos módban rizspapír-tónusú
 háttér (`#f6f1e6`) cinóbervörös (`#b23a2c`) és tompított arany (`#ad8a35`) akcenttel,
@@ -122,62 +132,54 @@ kézi `ThemeToggle` gomb, `localStorage`-ban perzisztálva, anti-FOUC inline scr
 - [x] **1. fázis — Repo & Astro alapok**: Astro projekt felépítve a cloud workspace-ben (kézzel, mivel a `create-astro` template-letöltés blokkolva volt a sandboxban), i18n routing (hu alap, en `/en/` prefix), `astro.config.mjs` (site + base a GitHub Pages project-oldalhoz).
 - [x] **2. fázis — Tartalommodell**: `src/content.config.ts` Zod sémák + Content Layer glob loader (Astro 7-ben a régi `content/config.ts` hely megszűnt), 4 valós projekt content-fájl a frissített repó-READMEk alapján, placeholder about/hobbies HU+EN.
 - [x] **3. fázis — Design & layout**: design tokenek (selyemúti + hegyvidéki paletta, world/dark), BaseLayout, Header/Footer/LangSwitcher/ThemeToggle/ProjectCard komponensek, Home/Hobbies/Projects nézetek mindkét nyelven, reszponzív grid.
-- [x] **4. fázis — CI/CD**: `.github/workflows/deploy.yml` megírva (build+deploy job, `withastro/action` + `actions/deploy-pages`). **Még nem futott élesben**, mert a repo még nincs létrehozva/pusholva GitHubra (l. lent).
-- [~] **5. fázis — Valós tartalom**: a 4 projektkártya valós adatokkal kész (pace-showcase PDF-linkkel, selyemut-showcase demóval, közös ai-scrum-assistant kártya, my-anki-app-showcase `wip: true`-val). **Még hátravan**: bio/hobbi végleges szövege (placeholder), `my-anki-app-showcase` képei (nem sikerült megbízhatóan azonosítani a pontos fájlneveket/útvonalakat a repóban — a user tudja hova töltötte, ő tudja pontosan hozzáadni), LinkedIn URL a `site.config.ts`-ben.
-- [ ] **6. fázis — Publikálás & QA**: `npm run build` + `astro check` **lefutott a cloud workspace-ben, hibátlanul** (0 build hiba, 0 típushiba). A ténylegesen élesbe vitel (repo létrehozása, git push, Pages bekapcsolása) a usernél van hátra, mert ez a session nincs bejelentkezve a `htgitacc` GitHub fiókba — l. "Amit neked kell megcsinálnod" lent.
+- [x] **4. fázis — CI/CD**: `.github/workflows/deploy.yml` megírva (build+deploy job, `withastro/action` + `actions/deploy-pages`).
+- [~] **5. fázis — Valós tartalom**: 5 projektkártya valós adatokkal (pace-showcase, selyemut-showcase, közös ai-scrum-assistant kártya, ai-sentiment-sd-showcase, my-anki-app-showcase `wip: true`-val). **Még hátravan**: bio/hobbi végleges szövege (placeholder, jelenleg egyik oldalon sincs kirenderelve, l. 7. fázis), `pace-showcase` 2. PDF-jének és a `my-anki-app-showcase` képeinek pontos elérési útja, LinkedIn URL a `site.config.ts`-ben.
+- [x] **6. fázis — Publikálás**: a user létrehozta a `htgitacc-pages` repót, kézzel git push-olta, bekapcsolta a Pages-t. **Egy build hiba merült fel és el lett hárítva**: az `ubuntu-latest` runner alapértelmezett Node verziója (20) nem elég az Astro 7-hez (`>=22.12.0` kell) — a `withastro/action` step `node-version: '22'` inputtal lett kiegészítve, ezt a user kézzel írta be (a `.github/workflows/*` útvonalra a device-bridge nem enged távoli írást biztonsági okból). Az oldal élesben fut: **https://htgitacc.github.io/htgitacc-pages/**.
+- [x] **7. fázis — Projektek-fókuszú átalakítás (2026-08-23)**: a user visszajelzése alapján a Projektek lap lett a kezdőlap (a `/`-en fut), a Kezdőlap/Hobbik menüpontok (és a hozzájuk tartozó oldalak) egyelőre le lettek véve — a régi `/projects/` és `/en/projects/` URL-ek statikus redirect-tel a gyökérre mutatnak, hogy a korábban megosztott linkek ne törjenek el. A Projektek lapon megjelent egy "az oldal még épül" jelzés és egy hosszabb, átfogalmazott bevezető bekezdés arról, hogy az elmúlt hónapok az agilis szakértelem + AI metszéspontjára fókuszáltak. Ezzel párhuzamosan minden linket újra ellenőriztem és két hibát javítottam (l. lent a Státusznaplóban), plusz felkerült egy új projekt (`ai-sentiment-sd-showcase`).
 
 ## Amit neked kell megcsinálnod (a cloud session nem tud pusholni GitHubra)
 
-Ennek a munkamenetnek nincs GitHub-hozzáférése a `htgitacc` fiókhoz (nincs `gh` CLI
-bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector) — ezért a
-kész projektet nem tudom magam pusholni. A kód a gépeden, a `C:\Users\tibor\claude\workdir\htgitacc-pages`
-mappában van (kicsomagolva a kiküldött zip-ből). Ezt kell tenned:
+Ennek a munkamenetnek továbbra sincs GitHub-hozzáférése a `htgitacc` fiókhoz (nincs `gh`
+CLI bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector) — a repo
+és az első publikálás viszont már megtörtént a te oldaladon, ez a rész innentől csak az
+**ismétlődő workflow**-t írja le:
 
-1. **Repo létrehozása GitHubon**: menj a https://github.com/new oldalra, tulajdonos: `htgitacc`,
-   név: `htgitacc-pages`, **üresen** hozd létre (README/gitignore nélkül, azt már tartalmazza a mappa).
-2. **Git init + push helyben** (a mappában, saját terminálból):
+1. A friss kódot (ez a kör: tartalomfrissítés + a Projektek-fókuszú átalakítás) kiküldtem
+   zip-ként és kicsomagoltattam a `C:\Users\tibor\claude\workdir\htgitacc-pages` mappádba.
+2. A mappában:
    ```bash
-   cd path/to/htgitacc-pages
-   git init
    git add .
-   git commit -m "Initial commit: Astro portfolio site"
-   git branch -M main
-   git remote add origin https://github.com/htgitacc/htgitacc-pages.git
-   git push -u origin main
+   git commit -m "Update project content, links, and make Projects the homepage"
+   git push
    ```
-3. **GitHub Pages bekapcsolása**: a repo **Settings → Pages** alatt **Source: GitHub Actions**.
-4. Ezután a push automatikusan elindítja a `.github/workflows/deploy.yml`-t, és pár percen
-   belül élesben lesz az oldal a `https://htgitacc.github.io/htgitacc-pages/` címen.
-5. Onnantól minden további tartalmi módosítás (bio, hobbi, projekt-adatok, képek) ugyanígy:
-   szerkesztés → `git add` → `git commit` → `git push` → automatikus rebuild+deploy.
-
-Ha szeretnéd, a következő körben végig tudlak vezetni ezeken a lépéseken, vagy ha adsz egy
-GitHub Personal Access Tokent, azzal a cloud sessionből is tudnék pusholni — de ez a te
-döntésed, alapból nem kértem ilyet.
+3. A push elindítja a `.github/workflows/deploy.yml`-t (a Node 22-es javítással, amit
+   legutóbb te írtál bele kézzel), és pár percen belül frissül az élő oldal:
+   **https://htgitacc.github.io/htgitacc-pages/**
 
 ### Nyitott kérdések (a következő körben pontosítandó)
 
-- Bio/hobbi végleges szövege — jelenleg placeholder.
-- `my-anki-app-showcase` kártya képei — a projekt-repóban nem sikerült megbízhatóan
-  beazonosítani a pontos fájlneveket/útvonalakat (a GitHub fájlböngésző-nézet ezt nem adta
-  vissza megbízhatóan a fetch-elés során); amint tudod a pontos elérési utat, egy sorban
-  frissíthető az `image:` mező a `my-anki-app-showcase.md`-ban.
-- LinkedIn URL — a `src/site.config.ts`-ben `linkedinUrl: null`, amíg üres, a kezdőlapon
-  nem jelenik meg a LinkedIn gomb.
+- Bio/hobbi végleges szövege — jelenleg egyik oldalon sincs kirenderelve (a Kezdőlap/Hobbik
+  oldalak le vannak véve), a `src/content/about` és `src/content/hobbies` fájlok érintetlenek,
+  bármikor visszahozhatók, ha újra megjelenne egy "Rólam" oldal.
+- LinkedIn URL — a `src/site.config.ts`-ben `linkedinUrl: null`; amíg üres, sehol nem
+  jelenik meg LinkedIn gomb (a Kezdőlap egyelőre amúgy sincs kint).
 - Cross-repo automatikus rebuild (`repository_dispatch`) — az infrastruktúra (trigger)
   megvan a workflow-ban, de nincs bekötve egyik forrás-repóhoz sem; ha ezt tényleg akarod
   (azaz hogy a pace-showcase/my-anki-app-showcase stb. módosítása automatikusan
   újraépítse ezt az oldalt PAT nélküli manuális push nélkül is), szólj és bekötjük.
+- Privát vs. publikus repo — felmerült, hogy privát legyen a repo; ennek van egy GitHub
+  Free-n blokkoló hatása (Pages csak publikus repóból megy ingyen), és a publikált oldal
+  attól még publikus maradna. A user egyelőre nem döntött végleg — l. a korábbi beszélgetést.
 
-## Ismert bemenet — meglévő publikus repók (2026-08-17-i állapot)
+## Ismert bemenet — meglévő publikus repók (2026-08-23-i állapot)
 
 | Repo | Rövid leírás | Tech | Élő demo |
 |---|---|---|---|
-| `pace-showcase` | AI-alapú agilis gyorsító, backlog/user story generálás | Node.js, LLM | nincs (a valódi app külön, nem publikus repóban fut) |
-| `selyemut-showcase` | Kínai kulturális tudástár (tea, kard, viselet, kalligráfia), Taijiquan/Qigong közösségnek | Astro 5, Cloudflare Workers, Decap CMS | `selyemut-negy-szala.htgitacc.workers.dev` |
-| `ai-scrum-assistant` | Streamlit app: user story / acceptance criteria / security risk generálás ötletből, A/B LLM teszteléssel | Python, Streamlit | nincs infó |
-| `ai-scrum-assistant-make-workflow` | Kapcsolódó automatizációs workflow (Make.com?) | nincs infó | nincs infó |
-| `my-anki-app-showcase` | Angol–magyar szókincstanuló app, AI-alapú kontextuskorrekcióval | SvelteKit 5, Tailwind, Supabase, Gemini API | `my-anki-app-pi.vercel.app` |
+| `pace-showcase` | AI-alapú agilis gyorsító, backlog/user story generálás | Node.js, LLM | nincs; 2 PDF bekötve (`PACE-bemutato-clientweb_start.pdf`, `..._finish.pdf` — a user adta meg a pontos neveket) |
+| `selyemut-showcase` | Kínai kulturális tudástár (tea, kard, viselet, kalligráfia), Taijiquan/Qigong közösségnek | Astro 5, Cloudflare Workers, Decap CMS | `selyemut-negy-szala.htgitacc.workers.dev` (ellenőrizve, élő) |
+| `ai-scrum-assistant` + `ai-scrum-assistant-make-workflow` | Közös kártya: Streamlit app (user story/AC/security risk generálás, A/B LLM teszt) + a hozzá kapcsolódó Make.com workflow | Python, Streamlit, Llama 3.1, Make.com | nincs |
+| `ai-sentiment-sd-showcase` | Ügyfélszolgálati portál prototípus: ügyfél-oldali huBERT hangulatelemzés + munkatárs-oldali RAG tudásbázis-keresés | Python, Streamlit, huBERT (NYTK), RAG | nincs (a README szerint nincs futtatható demó) |
+| `my-anki-app-showcase` | Angol–magyar szókincstanuló app, AI-alapú kontextuskorrekcióval | SvelteKit 5, Tailwind, Supabase, Gemini API | **nincs (szándékosan)** — a user kérésére eltávolítva; a forráskód mostantól privát (`htlearningacc`), a screenshotok (`myanki_01–03.jpg`) letöltve és a `public/assets/projects/my-anki/`-ba mentve, a kártya képe ezeket használja |
 
 ## Státusznapló
 
@@ -186,3 +188,9 @@ döntésed, alapból nem kértem ilyet.
 **2026-08-17 (2. kör)** — A nyitott kérdések nagy része lezárva: nem kell egyedi domain (elég a `*.github.io`), a két scrum-repo egy közös kártyaként jelenik meg, gyakorlatilag minden projekt kiemelt (`featured`), és megszületett egy konkrét design-irány (selyemúti/keleties hangulat + hegyvidéki zöld/szikla paletta, világos-sötét mód, letisztult). Ez alapján bővült a CLAUDE.md egy "Design / vizuális irány" szakasszal, és a projekt content-séma `repoUrls` tömbre és `wip` flagre módosult. Egyetlen még nyitott pont maradt: a bio/hobbi végleges szövege — ezt a user kérésére placeholderrel visszük tovább az 5. fázisig, és a `my-anki-app-showcase` kártya a hiányzó képek miatt egyelőre `wip: true`. Kódírás/repo létrehozás továbbra sem történt — csak tervezés.
 
 **2026-08-17 (3. kör)** — A user jelezte, hogy a forrás-repókat frissítette (my-anki-app-showcase: képek feltöltve; pace-showcase: új PDF; több repo README-je módosult), és kérte, hogy ez alapján kezdjük el ténylegesen építeni az oldalt, plusz szeretne egy CI/CD workflow-t, ami a módosításokat élesbe viszi. Ekkor: (1) frissen lekértem mind az 5 repó README-jét/fájllistáját (pace-showcase gyökerében megjelent egy `PACE-bemutato-clientweb_projekt.pdf` és egy `screenshots/` mappa; a my-anki-app-showcase képeinek pontos elérési útját nem sikerült megbízhatóan kiolvasni a fetch-elésből, ez nyitva maradt); (2) ellenőriztem, hogy ennek a cloud sessionnek **nincs push-jogosultsága** a `htgitacc` GitHub fiókhoz (nincs `gh` auth, nincs SSH kulcs, nincs GitHub MCP connector telepítve) — ez fontos korlát, dokumentálva lent; (3) felépítettem a teljes Astro projektet kézzel a cloud workspace-ben (a `create-astro` sablon-letöltés blokkolva volt, ezért `npm install astro` + kézi konfiguráció); (4) megvalósítottam az i18n-t, a design tokeneket, az összes komponenst/nézetet/oldalt, a 4 valós projekt-content fájlt, a `.github/workflows/deploy.yml`-t; (5) `npm run build` és `astro check` **hibátlanul lefutott** (6 statikus oldal generálódott, helyes `/htgitacc-pages/` base-prefixekkel). A kész projektet zip-ként kiküldtem és kicsomagoltattam a user gépén a `htgitacc-pages` mappába, a CLAUDE.md-t frissítettem. **Következő, user-oldali lépés**: repo létrehozása GitHubon + git push + Pages bekapcsolása (pontos parancsok fent) — ezt a sessiont nem tudom automatikusan elvégezni helyette.
+
+**2026-08-17 (privát repo kérdés)** — A user megkérdezte, hogy okoz-e gondot, ha privát repóba teszi. Válasz: a GitHub Free csomagon a Pages csak publikus repóból megy; privát repóhoz fizetős (Pro/Team) csomag kell, és még akkor is a **publikált oldal** marad alapból publikus (a forrás és a live site láthatósága külön dolog GitHub-on) — privát *site*-hoz Enterprise Cloud + Pages access control kell. Mivel a cél egy LinkedIn-en megosztandó publikus oldal, publikus repo maradt a javaslat; a user nem reagált még véglegesen erre, ez nyitott maradt.
+
+**2026-08-23 (4. kör)** — A user beszámolt róla, hogy közben (`htlearningacc` néven, contributorként) tovább dolgozott a forrás-repókon: linkek törtek el, a PACE repóba 2 PDF került fel, több README/about fájl változott, és felkerült egy vadonatúj repo (`ai-sentiment-sd-showcase`). Emellett git push-on már túl volt, és egy CI hibaüzenetet hozott: az Astro 7 buildhez `Node.js >=22.12.0` kell, az `ubuntu-latest` runner alapértelmezett Node 20-a nem elég. Ebben a körben: (1) kijavítottam a `.github/workflows/deploy.yml`-t (`node-version: '22'` a `withastro/action`-nek) — ezt a usernek magának kellett bemásolnia, mert a `.github/workflows/*` útvonalra a device-bridge nem enged távoli írást; (2) újra lekértem mind az 5 (most már 5, nem 4) repó aktuális állapotát; ennek során **két konkrét törött linket találtam és javítottam**: a `my-anki-app-showcase` demó linkje (`my-anki-app.vercel.app` → 404; a helyes, élőben tesztelt cím `my-anki-app-pi.vercel.app`), és a `pace-showcase` PDF-je (a korábbi `raw.githubusercontent.com/.../main/....pdf` formátumú link 404-et adott a fetch-elés során — lecseréltem a megbízhatóbb `github.com/.../blob/main/....pdf` "blob-nézet" formátumra); (3) a `pace-showcase` **2. PDF-jét** és a `my-anki-app-showcase` **screenshot-jainak pontos elérési útját** ismét nem sikerült megbízhatóan azonosítani a repó-böngészés fetch-elésével (ez láthatóan egy visszatérő korlátja ennek a módszernek, nem egyszeri hiba) — ezek nyitva maradtak, a user tudja megadni a pontos fájlneveket; (4) hozzáadtam az új `ai-sentiment-sd-showcase` projektkártyát a README alapján; (5) a `pdfUrl` mező `pdfUrls` tömbbé alakult (séma + `ProjectCard.astro`), hogy több PDF is elférjen egy projektnél; (6) a user kérésére a **Projektek lap lett a kezdőlap**, a Kezdőlap/Hobbik menüpontok és oldalak egyelőre le lettek véve (a `/projects/` és `/en/projects/` URL-ek statikus redirect-tel a gyökérre mutatnak, hogy a régi linkek ne törjenek), a Header nav üres tömbre állt; (7) a Projektek lapra bekerült egy "az oldal még épül" jelzés és egy hosszabb, a user vázlata alapján átfogalmazott bevezető bekezdés az agilitás+AI fókuszról (HU+EN, `projects.focus` i18n kulcs). `npm run build` és `astro check` **újra hibátlanul lefutott** (4 statikus oldal + 2 redirect-oldal a `/projects/` útvonalakra). A kész kódot zip-ként kiküldtem és kicsomagoltattam a user gépére; a `.github/workflows/deploy.yml` már korábban (kézzel) javítva volt nála, azt nem írtam felül. **Következő user-oldali lépés**: `git add . && git commit && git push` a mappában.
+
+**2026-08-23 (5. kör)** — A user megadta a hiányzó infókat: a `my-anki-app-showcase`-nek **nincs többé élő demója** (a kód mostantól a privát `htlearningacc` repóban fejlődik tovább, se README, se about nem hivatkozik rá) — kérte, hogy vegyük ki a linket, ezt megtettem (`demoUrl: null`). Megadta a screenshotok pontos elérési útját (`.../my-anki-app-showcase/tree/main/screenshots`) — innen a raw README-ből kiolvastam a 3 pontos fájlnevet (`myanki_01/02/03.jpg`), és a `curl` (cloud Bash) segítségével **le is töltöttem mindhármat** a `public/assets/projects/my-anki/` alá, majd a `myanki_02.jpg`-t (főképernyő) beállítottam a kártya képének — így nem külső linkre hivatkozunk, a repo jövőbeli (esetleg privát) állapotától függetlenül működik. Emiatt a `ProjectCard.astro` kapott egy base-URL-prefixelő logikát, mert a content-fájlokban gyökér-relatív útvonalat (`/assets/...`) írunk, amit GitHub Pages-en a `/htgitacc-pages/` base elé kell fűzni — enélkül törött lett volna a kép. A `wip: true` jelzés lekerült a kártyáról (a hiányzó infó megvolt, nincs már "folyamatban" állapot). Megadta a PACE két PDF-jének pontos nevét is (`..._start.pdf`, `..._finish.pdf`) — ezekkel **lecseréltem** a korábban félig-találgatott egyetlen PDF-linket (a régi `..._projekt.pdf` fájl a user listájában már nem szerepelt, feltehetően átnevezték/szétbontották). **Technikai tanulság**: a `raw.githubusercontent.com` linkek korábbi "404"-jei valószínűleg a WebFetch-eszköz sajátossága voltak, nem valódi törött linkek — `curl`-lal (cloud Bash) ugyanaz az URL simán letöltötte a képet; a `github.com/.../blob/main/...` "megbízhatóbb" formátum emiatt inkább UX-preferencia (letöltés-gombos GitHub-nézet), nem technikai szükségszerűség. `npm run build` + `astro check` **hibátlan**; a képek/linkek megjelenése a generált HTML-ben ellenőrizve. A módosított fájlokat (2 content-md, `ProjectCard.astro`, 3 kép) egyenként kiküldtem és felírtam a user gépére. **Következő user-oldali lépés**: `git add . && git commit && git push`.

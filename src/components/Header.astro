@@ -13,11 +13,11 @@ const { path } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const navItems = [
-  { key: 'nav.home', href: getRelativeLocaleUrl(lang, '/') },
-  { key: 'nav.hobbies', href: getRelativeLocaleUrl(lang, '/hobbies/') },
-  { key: 'nav.projects', href: getRelativeLocaleUrl(lang, '/projects/') },
-] as const;
+// Az oldal jelenleg csak a Projektek lapból áll (az egyelőre a
+// kezdőlap is) — a többi menüpontot (Kezdőlap/Hobbik) leszedtük, amíg
+// nincs hozzájuk kész tartalom. A nav-tömb szándékosan üres, hogy
+// később könnyű legyen visszatenni (l. CLAUDE.md).
+const navItems: Array<{ key: 'nav.home' | 'nav.hobbies' | 'nav.projects'; href: string }> = [];
 ---
 
 <header class="site-header">
@@ -27,11 +27,13 @@ const navItems = [
       {siteName}
     </a>
 
-    <nav class="site-nav" aria-label="Fő navigáció">
-      {navItems.map((item) => (
-        <a href={item.href}>{t(item.key)}</a>
-      ))}
-    </nav>
+    {navItems.length > 0 && (
+      <nav class="site-nav" aria-label="Fő navigáció">
+        {navItems.map((item) => (
+          <a href={item.href}>{t(item.key)}</a>
+        ))}
+      </nav>
+    )}
 
     <div class="header-actions">
       <LangSwitcher lang={lang} path={path} />

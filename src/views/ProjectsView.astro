@@ -5,6 +5,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { useTranslations, getLangFromUrl } from '../i18n/utils';
 import { siteConfig } from '../site.config';
 
+interface Props {
+  /** locale-prefix nélküli útvonal, amin ez a nézet ki van téve (a nyelvváltóhoz kell) */
+  path?: string;
+}
+const { path = '/' } = Astro.props;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -21,11 +27,15 @@ const description =
     : 'My public projects and showcases.';
 ---
 
-<BaseLayout title={title} description={description} path="/projects/">
+<BaseLayout title={title} description={description} path={path}>
   <section class="container page-header">
     <span class="eyebrow">{t('projects.eyebrow')}</span>
     <h1>{t('projects.title')}</h1>
     <p class="intro">{t('projects.intro')}</p>
+    <p class="focus">{t('projects.focus')}</p>
+    <p class="wip-note">
+      <span aria-hidden="true">🚧</span> {t('projects.wip')}
+    </p>
   </section>
 
   <section class="container projects-grid">
@@ -38,10 +48,27 @@ const description =
 <style>
   .page-header {
     padding-block: clamp(2rem, 4vw, 4rem) 1rem;
-    max-width: 42rem;
+    max-width: 46rem;
   }
   .intro {
     color: var(--text-muted);
+  }
+  .focus {
+    color: var(--text);
+    font-size: 1.02rem;
+  }
+  .wip-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--forest-strong);
+    background: color-mix(in srgb, var(--forest) 10%, var(--bg-elevated));
+    border: 1px solid color-mix(in srgb, var(--forest) 30%, var(--border));
+    border-radius: 999px;
+    padding: 0.4em 0.9em;
+    margin-top: 0.5rem;
   }
   .projects-grid {
     display: grid;

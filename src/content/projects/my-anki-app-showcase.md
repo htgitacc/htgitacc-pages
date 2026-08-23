@@ -13,10 +13,10 @@ summary_en: >
   translation, and two more example sentences.
 tech: ["SvelteKit 5", "Tailwind CSS v4", "Supabase", "Gemini API"]
 repoUrls: ["https://github.com/htgitacc/my-anki-app-showcase"]
-demoUrl: "https://my-anki-app.vercel.app"
-pdfUrl: null
-image: null
+demoUrl: null
+pdfUrls: []
+image: "/assets/projects/my-anki/myanki_02.jpg"
 featured: true
-wip: true
+wip: false
 order: 40
 ---
