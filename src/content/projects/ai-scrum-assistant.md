@@ -22,5 +22,5 @@ pdfUrls: []
 image: null
 featured: true
 wip: false
-order: 30
+order: 20
 ---

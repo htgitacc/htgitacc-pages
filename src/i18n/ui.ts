@@ -21,9 +21,9 @@ export const ui = {
     'projects.intro':
       'Publikus repók és bemutatók a saját projektjeimből — némelyik éles alkalmazás, némelyik showcase.',
     'projects.focus':
-      'Az utóbbi pár hónapban azzal foglalkoztam, hogy egy agilis szakember (Scrum Master, Product Owner, projektmenedzser) mindennapjaiban milyen valódi lehetőségeket nyit meg az AI: hol gyorsítja és könnyíti meg a munkát, és tényleg teremt-e mérhető értéket. Elég egy jó prompt, vagy inkább egy célzott, egyszerű alkalmazásra van szükség? Mindkettő spórolhat időt — de ha a folyamatok nincsenek egymásra építve, ellenőrizve, dokumentálva és emberi jóváhagyással kísérve, a felgyorsult munka könnyen kaotikussá válik, és felemészti a megspórolt időt. Az alábbi projektek ezt az utat mutatják be: olyan folyamatok, alkalmazások és ötletek megvalósítását, ahol megmarad a folyamatos értékteremtés — és a megspórolt idővel végre szabadon rendelkezhetünk.',
+      'Az utóbbi pár hónapban azzal foglalkoztam, hogy egy agilis szakember (Scrum Master, Product Owner, projektmenedzser) mindennapjaiban milyen valódi lehetőségeket nyit meg az AI: hol gyorsítja és könnyíti meg a munkát, és valóban teremt-e mérhető értéket. Elég egy jó prompt, vagy inkább egy célzott, egyszerű alkalmazásra van szükség? Mindkettő spórolhat időt — de ha a folyamatok nincsenek egymásra építve, ellenőrizve, dokumentálva és emberi jóváhagyással kísérve, a felgyorsult munka könnyen kaotikussá válhat, és felemésztheti a megspórolt időt.\n\nAz alábbi projektek ezt az utat mutatják be: olyan folyamatok, alkalmazások és ötletek megvalósítását, amelyekben megmarad a folyamatos értékteremtés — miközben a technológia segítségével időt és energiát szabadíthatunk fel. A szakmai fókusz mellett néhány hobbi projektet is bemutatok, amelyek sokszínűbbé tették a kísérletezést, és újabb ötletekhez, valamint egy kis plusz lelkesedéshez is hozzájárultak. A projektek megvalósítása során AI-asszisztált fejlesztési megközelítést, vibe coding módszertant alkalmaztam, megtapasztalva, hogyan lehet az AI-t nem csupán eszközként, hanem a fejlesztési folyamat aktív társaként használni.',
     'projects.wip':
-      'Az oldal még épül — egyelőre a projektek bemutatására koncentrálunk.',
+      'Az oldal folyamatosan épül és fejlődik, jelenleg a projektmunkák bemutatása áll a középpontban.',
     'project.repo': 'Repó',
     'project.repos': 'Repók',
     'project.demo': 'Élő demó',
@@ -50,8 +50,9 @@ export const ui = {
     'projects.intro':
       'Public repos and write-ups from my own projects — some are live apps, some are showcases.',
     'projects.focus':
-      "Over the past few months I've been exploring what AI genuinely offers an agile practitioner — Scrum Master, Product Owner, or project manager: where it actually speeds things up, where it lightens the workload, and whether it creates real, measurable value. Is a good prompt enough, or does it take a focused, purpose-built application? Both can save time — but without workflows that build on each other, get checked, documented, and kept under human sign-off, that speed quickly turns chaotic and eats back the time it saved. The projects below trace that path: processes, apps, and ideas built to keep creating real value — so the time saved is genuinely ours to spend.",
-    'projects.wip': 'This site is still under construction — for now the focus is on showcasing the projects.',
+      "Over the past few months I've been exploring what real opportunities AI opens up in the everyday work of an agile practitioner (Scrum Master, Product Owner, project manager): where it actually speeds up and eases the work, and whether it truly creates measurable value. Is a good prompt enough, or does it take a focused, purpose-built application instead? Both can save time — but if the workflows aren't properly built on each other, checked, documented, and accompanied by human sign-off, that accelerated work can easily turn chaotic and eat up the time it saved.\n\nThe projects below trace that path: processes, applications, and ideas that keep creating real value — while using technology to free up time and energy. Alongside the professional focus, I'm also showcasing a few hobby projects, which made the experimentation more varied and brought new ideas along with a bit of extra enthusiasm. Across all of these projects I used an AI-assisted development approach — vibe coding — experiencing firsthand how AI can be not just a tool, but an active partner in the development process.",
+    'projects.wip':
+      'The site is continuously growing and evolving — right now the focus is on showcasing the project work.',
     'project.repo': 'Repo',
     'project.repos': 'Repos',
     'project.demo': 'Live demo',
