@@ -48,4 +48,4 @@ npm run preview   # a build eredményének helyi előnézete
    (ne "Deploy from a branch").
 2. Utána minden `main`-re történő push automatikusan buildel és deployol.
 3. Kézzel is elindítható build a GitHub repo **Actions** fülén, a "Deploy to GitHub Pages"
-   workflow **Run workflow** gombjával.
+   workflow **Run workflow** gombjával. 
