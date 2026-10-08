@@ -18,5 +18,5 @@ pdfUrls: []
 image: "/assets/projects/my-anki/myanki_02.jpg"
 featured: true
 wip: false
-order: 60
+order: 70
 ---

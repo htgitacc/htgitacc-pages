@@ -23,5 +23,5 @@ pdfUrls:
 image: null
 featured: true
 wip: false
-order: 10
+order: 20
 ---
