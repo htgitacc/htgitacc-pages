@@ -11,13 +11,25 @@ mutatjuk (hány projekt, milyen problémák, milyen technológiák), nem a progr
 Golden Circle sorrendje: **miért → mit → (hogyan = címkék) → tanulság**. A miértet nem erőltetjük.
 A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 
-## Hol tartunk (2026-11-01)
-- A helyi `main` **több commitot tartalmaz, mint az `origin/main`: NINCS PUSHOLVA** (`git log origin/main..main`), mert a push azonnal élesít, és a szövegek jóváhagyása még nyitott.
+## Hol tartunk (2026-11-01 vége)
+- **Pusholva:** `origin/main` = `56d9296` (deploy sikeres). **Nincs pusholva** 1 commit: `95ce793` (AstraDocs → „Wiki Tudástár" átnevezés); a felhasználó kérte, hogy holnap menjen ki a sorrend módosításával együtt. Ellenőrzés: `git log origin/main..main`.
 - `tests/futtat.sh` zöld (13 ellenőrzés), mutációval ellenőrizve: tartalék kártya véletlen kikerülése, rossz képútvonal, e-mail cím egy szövegben: mindet elkapta.
 - Selyemút (sötét, alapértelmezett) + Füstölő (világos) színek a `PROJ_design/selyemut-fustolo-temak/tokens.json`-ból.
 - 17 kártya (12 szerveres projekt elöl, 5 showcase), 12 képes; 3 rejtett tartalék (`tartalek-*.md`, `draft: true`)
   a GPT Codex / Cursor projekteknek (Vercelen futnak; a felhasználó adja meg őket).
 - Ellenőrizve: build zöld, nincs törött kép, 390 px-en nincs vízszintes görgetés, sötét és világos téma átnézve.
+- Az élő oldalt a felhasználó még nem nézte át a push után (különösen: két címkés kártya, rövidített bevezető).
+
+## Holnapra (a felhasználó kérése)
+1. **Kártyák sorrendje** módosul (`order` mező a `src/content/projects/*.md`-ben). Figyelem: a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló; döntés kell, hogy külön legyenek-e, vagy az egyik átnevezendő.
+2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
+3. A Wiki Tudástár kártya szövegei (miért) átnézése, mert a név megváltozott.
+4. Utána push (jóváhagyással).
+
+## Új ismeretek (2026-11-01)
+- `tools` lista (nem `tool`): `src/content.config.ts` enum: Claude Code, GPT Codex, Cursor, GLM.
+- Showcase-repók README-képei: a headless Chromiumban nincs a demó betűtípusa, 390 px-en kilóg a fejléc → **412 px** (valódi Android-szélesség) a metronóm-képeknél. A GitHub-táblázat az oszlopokat a felirathoz igazítja → HTML-táblázat rögzített `<img width>`-tel, `valign="top"`, rövid feliratokkal.
+- A Node-RED kártya (`nodered-port-monitor.md`) a `htgitacc/PROJ_nodered_showcase` repóra mutat (a repó nevét a felhasználó javította; az eredeti elgépelt név megszűnt).
 
 ## NYITOTT (2026-11-01-i egyeztetés után)
 Eldöntve: 
@@ -30,10 +42,10 @@ Még nyitott:
 1. Kép nélkül: Wiki Tudástár, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
 2. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
 3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm showcase (`htgitacc/PROJ_metronom_cursor_showcase`, demó: breath-metronome-phi.vercel.app) a `tartalek-cursor-1` jelöltje; a README képei elkészültek.
-4. **Push:** a felhasználó jóváhagyásával; előtte `git log origin/main..main`.
+4. **Push:** csak a felhasználó jóváhagyásával; előtte `git log origin/main..main` és `tests/futtat.sh`.
 
 ## Átadómondat új ablakhoz (másold be)
-> Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig a „NYITOTT” listán velem: a kártyák miértjeit/tanulságait, az eszköz-címkéket és a bevezetőt hagyom jóvá, utána pusholhatsz. A `_to_delete/` mappához ne nyúlj.
+> Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig velem a „Holnapra” és a „Még nyitott” listán (kártyasorrend, focus-szöveg, Wiki Tudástár); pusholni csak a jóváhagyásom után. A `_to_delete/` mappához ne nyúlj.
 
 ## Buktatók
 - **Minden kép és szöveg nyilvános.** Képernyőképen nem lehet e-mail cím, név, kulcs, helyszín.
