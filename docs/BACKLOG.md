@@ -16,6 +16,6 @@
 
 ## Valamikor
 - A saját történet szakasz (pár bekezdés, a felhasználó írja; addig `draft`).
-- Képek az AstraDocs, MLOps, Webhook-API, Node-RED és WordPress-plugin kártyákhoz, ha lesz bemutatható felület.
+- Képek az Wiki Tudástár, MLOps, Webhook-API, Node-RED és WordPress-plugin kártyákhoz, ha lesz bemutatható felület.
 - A WordPress-portfólió (a `PROJ_wpstage` repóban), ugyanebből a tartalomból; a domainváltás (`htgitacc.site`) akkor.
 - Az `ellenoriz.cjs` kiegészítése a képek tartalmának ellenőrzésével (e-mail cím a képeken: OCR), ha sok kép gyűlik.

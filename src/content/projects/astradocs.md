@@ -1,6 +1,6 @@
 ---
-title_hu: "AstraDocs — saját tudástár"
-title_en: "AstraDocs — a personal knowledge hub"
+title_hu: "Wiki Tudástár"
+title_en: "Wiki Knowledge Base"
 why_hu: "Kellett egy hely, ahol a tananyagaim és jegyzeteim lépésről lépésre, kereshetően élnek."
 why_en: "I needed one place where my study material and notes live step by step and stay searchable."
 summary_hu: "Magyar nyelvű dokumentációs oldal projektenkénti menüvel, kereséssel és több színtémával, amely a változásokat percek alatt automatikusan kiteszi a szerverre."

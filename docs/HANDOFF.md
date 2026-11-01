@@ -27,7 +27,7 @@ Eldöntve:
 - `projects.focus`: 2–3 mondatra rövidítve; a teljes eredeti szöveg a `docs/focus-eredeti-szoveg.md`-ben. A felhasználó később pontosítja.
 
 Még nyitott:
-1. Kép nélkül: AstraDocs, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
+1. Kép nélkül: Wiki Tudástár, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
 2. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
 3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm showcase (`htgitacc/PROJ_metronom_cursor_showcase`, demó: breath-metronome-phi.vercel.app) a `tartalek-cursor-1` jelöltje; a README képei elkészültek.
 4. **Push:** a felhasználó jóváhagyásával; előtte `git log origin/main..main`.
