@@ -1,0 +1,6 @@
+[
+ {"name":"tudas-1","url":"http://127.0.0.1:8591/","wait":2500},
+ {"name":"tudas-2","url":"http://127.0.0.1:8591/05-kiszolgalas/","wait":2500},
+ {"name":"astro-1","url":"http://127.0.0.1:8592/","wait":2500},
+ {"name":"astro-2","url":"http://127.0.0.1:8592/vibe-coding/","wait":2500}
+]

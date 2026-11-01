@@ -1,0 +1,9 @@
+[
+ {"name":"weather-2","url":"http://127.0.0.1:8501/","scroll":800},
+ {"name":"weather-3","url":"http://127.0.0.1:8501/","scroll":1700},
+ {"name":"nlp-2","url":"http://127.0.0.1:8510/","click":"5. Vektorizáció"},
+ {"name":"nlp-3","url":"http://127.0.0.1:8510/","click":"7. Kiértékelés"},
+ {"name":"bbc-1","url":"http://127.0.0.1:8521/"},
+ {"name":"pmall-1","url":"http://127.0.0.1:8524/waterfall/"},
+ {"name":"small-1","url":"http://127.0.0.1:8523/agilis/"}
+]

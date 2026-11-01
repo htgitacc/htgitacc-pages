@@ -1,0 +1,5 @@
+[
+ {"name":"weather-2","url":"http://127.0.0.1:8501/","scroll":900},
+ {"name":"weather-3","url":"http://127.0.0.1:8501/","scroll":2400},
+ {"name":"weather-4","url":"http://127.0.0.1:8501/","scroll":3600}
+]

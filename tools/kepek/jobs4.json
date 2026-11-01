@@ -1,0 +1,5 @@
+[
+ {"name":"tudas-2","url":"http://127.0.0.1:8591/05-kiszolgalas/modellregiszter/","wait":3000},
+ {"name":"astro-1","url":"http://127.0.0.1:8592/","wait":9000},
+ {"name":"astro-2","url":"http://127.0.0.1:8592/vibe-coding/","wait":9000}
+]
