@@ -28,17 +28,31 @@ const projects = defineCollection({
   schema: z.object({
     title_hu: z.string(),
     title_en: z.string(),
+    // Golden Circle: a kártya a MIÉRTtel indul (miért született), ha van
+    // hiteles válasz; ahol nincs, a kártya a mittel (summary) kezdődik.
+    why_hu: z.string().nullable().default(null),
+    why_en: z.string().nullable().default(null),
     summary_hu: z.string(),
     summary_en: z.string(),
+    // egysoros tanulság: mire jöttem rá a projekt közben
+    learned_hu: z.string().nullable().default(null),
+    learned_en: z.string().nullable().default(null),
     tech: z.array(z.string()).default([]),
-    // egy projekthez több repo is tartozhat (pl. app + automatizációs workflow)
-    repoUrls: z.array(z.string().url()).min(1),
+    // melyik AI-fejlesztőeszközzel készült (jelvényként jelenik meg)
+    tool: z.enum(['Claude Code', 'GPT Codex', 'Cursor']).nullable().default(null),
+    // egy projekthez több repo is tartozhat (pl. app + automatizációs workflow);
+    // lehet üres is, mert több munkarepó privát, és a látogató ott 404-et kapna
+    repoUrls: z.array(z.string().url()).default([]),
     demoUrl: z.string().url().nullable().default(null),
     // opcionális letölthető anyag(ok) (pl. bemutató PDF-ek) — tömb, mert
     // egy projekthez több PDF is tartozhat (l. pace-showcase.md)
     pdfUrls: z.array(z.string().url()).default([]),
-    // opcionális screenshot/kép a public/assets/projects/<slug>/ alól
-    image: z.string().nullable().default(null),
+    // képek a public/assets/projects/<slug>/ alól: az első mindig látszik,
+    // a többi a „Több kép" lenyitóban
+    images: z.array(z.string()).max(4).default([]),
+    // tartalék kártya (pl. még kitöltendő Codex/Cursor projekt): a buildben
+    // nem jelenik meg, amíg true
+    draft: z.boolean().default(false),
     // kiemelt projektek jelennek meg elöl / hangsúlyosabban
     featured: z.boolean().default(false),
     // "folyamatban" jelzés (pl. még hiányzó képek/leírás)

@@ -18,17 +18,28 @@ const t = useTranslations(lang);
 // (ui.ts-ben '\n\n'-nel), itt bontjuk külön <p> elemekre.
 const focusParagraphs = t('projects.focus').split('\n\n');
 
-const allProjects = await getCollection('projects');
+// A tartalék (draft) kártyák nem jelennek meg, amíg nincsenek kitöltve.
+const allProjects = await getCollection('projects', ({ data }) => !data.draft);
 const projects = allProjects.sort((a, b) => {
   if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
   return a.data.order - b.data.order;
 });
 
+// A számok és a technológia-felhő a kártyákból számolódnak, hogy új projekt
+// felvételekor ne kelljen kézzel frissíteni őket. A felhő gyakoriság szerint
+// rendez: ami több projektben szerepel, az előrébb és nagyobb.
+const techCount = new Map<string, number>();
+for (const { data } of projects) {
+  for (const tech of data.tech) techCount.set(tech, (techCount.get(tech) ?? 0) + 1);
+}
+const techCloud = [...techCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const tools = new Set(projects.map(({ data }) => data.tool).filter(Boolean));
+
 const title = `${t('projects.title')} — ${siteConfig.displayName}`;
 const description =
   lang === 'hu'
-    ? 'Publikus projektjeim és bemutatóim.'
-    : 'My public projects and showcases.';
+    ? 'Projektjeim az AI-tanulás útján: miért születtek, mit csinálnak, mit tanultam belőlük.'
+    : 'My projects along the AI learning path: why they were made, what they do, what I learned.';
 ---
 
 <BaseLayout title={title} description={description} path={path}>
@@ -39,47 +50,180 @@ const description =
     {focusParagraphs.map((paragraph) => (
       <p class="focus">{paragraph}</p>
     ))}
-    <p class="wip-note">
-      <span aria-hidden="true">🚧</span> {t('projects.wip')}
-    </p>
   </section>
 
-  <section class="container projects-grid">
+  <section class="container overview" aria-label={t('projects.overview')}>
+    <dl class="stats">
+      <div>
+        <dt>{t('stats.projects')}</dt>
+        <dd>{projects.length}</dd>
+      </div>
+      <div>
+        <dt>{t('stats.technologies')}</dt>
+        <dd>{techCloud.length}</dd>
+      </div>
+      {/* egyetlen eszköznél a szám keveset mond; a Codex/Cursor kártyákkal jelenik meg */}
+      {tools.size > 1 && (
+        <div>
+          <dt>{t('stats.tools')}</dt>
+          <dd>{tools.size}</dd>
+        </div>
+      )}
+    </dl>
+    <ul class="tech-cloud" aria-label={t('stats.technologies')}>
+      {techCloud.map(([tech, count]) => (
+        <li class:list={{ 'is-frequent': count >= 3, 'is-common': count === 2 }}>{tech}</li>
+      ))}
+    </ul>
+  </section>
+
+  <div class="container">
+    <div class="thread-divider"></div>
+  </div>
+
+  <section class="container projects-list">
     {projects.map((project) => (
       <ProjectCard project={project} />
     ))}
   </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label={t('project.zoom')}>
+    <form method="dialog">
+      <button class="lightbox-close" aria-label={t('lightbox.close')}>×</button>
+    </form>
+    <img alt="" />
+  </dialog>
 </BaseLayout>
+
+<script>
+  // Egyetlen közös <dialog> az összes kártya képéhez: kattintásra nagyban
+  // nyílik, Esc-re vagy a háttérre kattintva bezárul.
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const image = dialog?.querySelector('img');
+  document.querySelectorAll<HTMLButtonElement>('.zoomable').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!dialog || !image) return;
+      image.src = button.dataset.full ?? '';
+      image.alt = button.querySelector('img')?.alt ?? '';
+      dialog.showModal();
+    });
+  });
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
 
 <style>
   .page-header {
     padding-block: clamp(2rem, 4vw, 4rem) 1rem;
+  }
+  /* a szöveg olvasható szélességű, de a blokk a konténer bal széléhez igazodik,
+     egy vonalban az áttekintéssel és a kártyákkal */
+  .page-header > * {
     max-width: 46rem;
   }
   .intro {
-    color: var(--text-muted);
+    color: var(--text-high);
+    font-size: 1.1rem;
   }
   .focus {
-    color: var(--text);
+    color: var(--text-muted);
     font-size: 1.02rem;
   }
-  .wip-note {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--forest-strong);
-    background: color-mix(in srgb, var(--forest) 10%, var(--bg-elevated));
-    border: 1px solid color-mix(in srgb, var(--forest) 30%, var(--border));
-    border-radius: 999px;
-    padding: 0.4em 0.9em;
-    margin-top: 0.5rem;
-  }
-  .projects-grid {
+
+  .overview {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+  }
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    margin: 0;
+  }
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .stats dt {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .stats dd {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+    line-height: 1;
+    color: var(--accent);
+    /* a Cormorant alapból régies (oldstyle) számjegyeket rajzol, az „1” „I”-nek látszik */
+    font-variant-numeric: lining-nums;
+  }
+  .tech-cloud {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0;
+    margin: 0;
+    max-width: 52rem;
+  }
+  .tech-cloud li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.2em 0.75em;
+  }
+  .tech-cloud li.is-common {
+    color: var(--text);
+    font-size: 0.88rem;
+  }
+  .tech-cloud li.is-frequent {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .projects-list {
+    display: grid;
+    gap: 2rem;
     padding-bottom: 4rem;
+  }
+
+  .lightbox {
+    max-width: min(96vw, 1400px);
+    max-height: 94vh;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-inset);
+  }
+  .lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  .lightbox form {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+  }
+  .lightbox-close {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--heading);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
   }
 </style>

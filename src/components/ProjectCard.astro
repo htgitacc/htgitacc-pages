@@ -10,28 +10,37 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { data } = project;
 
-const title = lang === 'hu' ? data.title_hu : data.title_en;
-const summary = lang === 'hu' ? data.summary_hu : data.summary_en;
+const hu = lang === 'hu';
+const title = hu ? data.title_hu : data.title_en;
+const why = hu ? data.why_hu : data.why_en;
+const summary = hu ? data.summary_hu : data.summary_en;
+const learned = hu ? data.learned_hu : data.learned_en;
 
-// A content-fájlokban az image mezőt base nélkül, gyökér-relatívan írjuk
+// A content-fájlokban a képeket base nélkül, gyökér-relatívan írjuk
 // (pl. '/assets/projects/my-anki/kep.jpg') — itt fűzzük hozzá a GitHub
 // Pages base-t ('/htgitacc-pages/'), hogy éles buildben is jó legyen a link.
-const imageSrc = data.image
-  ? `${import.meta.env.BASE_URL}${data.image.replace(/^\//, '')}`
-  : null;
+const withBase = (src: string) => `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
+const [firstImage, ...moreImages] = data.images.map(withBase);
 ---
 
-<article class="project-card" class:list={{ 'is-wip': data.wip }}>
-  <div class="project-body">
+<article class="project-card" class:list={{ 'is-wip': data.wip, 'has-media': !!firstImage }}>
+  <div class="project-text">
     <div class="project-heading">
       <h3>{title}</h3>
       {data.wip && <span class="badge badge--wip">{t('badge.wip')}</span>}
     </div>
 
+    {why && <p class="project-why">{why}</p>}
     <p class="project-summary">{summary}</p>
+    {learned && (
+      <p class="project-learned">
+        <span class="label">{t('project.learned')}</span> {learned}
+      </p>
+    )}
 
-    {data.tech.length > 0 && (
+    {(data.tool || data.tech.length > 0) && (
       <ul class="tech-list" aria-label={t('project.tech')}>
+        {data.tool && <li class="tool">{data.tool}</li>}
         {data.tech.map((tech) => (
           <li>{tech}</li>
         ))}
@@ -39,73 +48,78 @@ const imageSrc = data.image
     )}
 
     <div class="project-links">
-      {data.repoUrls.map((url, i) => (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {data.repoUrls.length > 1 ? `${t('project.repo')} ${i + 1}` : t('project.repo')} ↗
-        </a>
-      ))}
       {data.demoUrl && (
         <a href={data.demoUrl} target="_blank" rel="noopener noreferrer" class="link-accent">
           {t('project.demo')} ↗
         </a>
       )}
+      {data.repoUrls.map((url, i) => (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {data.repoUrls.length > 1 ? `${t('project.repo')} ${i + 1}` : t('project.repo')} ↗
+        </a>
+      ))}
       {data.pdfUrls.map((url, i) => (
         <a href={url} target="_blank" rel="noopener noreferrer">
           {data.pdfUrls.length > 1 ? `${t('project.pdf')} ${i + 1}` : t('project.pdf')} ↗
         </a>
       ))}
     </div>
-
-    {imageSrc && (
-      <div class="project-media">
-        <img src={imageSrc} alt="" loading="lazy" />
-      </div>
-    )}
   </div>
+
+  {firstImage && (
+    <div class="project-media">
+      <button type="button" class="zoomable" data-full={firstImage} aria-label={t('project.zoom')}>
+        <img src={firstImage} alt={title} loading="lazy" decoding="async" />
+      </button>
+      {moreImages.length > 0 && (
+        <details class="more-images">
+          <summary>{t('project.moreImages')} ({moreImages.length})</summary>
+          <div class="more-grid">
+            {moreImages.map((src) => (
+              <button type="button" class="zoomable" data-full={src} aria-label={t('project.zoom')}>
+                <img src={src} alt={title} loading="lazy" decoding="async" />
+              </button>
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  )}
 </article>
 
 <style>
   .project-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    height: 100%;
+    /* bal oldali arany „selyemszál": a design rendszer díszítő színe */
+    border-left: 3px solid var(--accent-2);
   }
 
-  .project-card:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  @media (min-width: 900px) {
+    .project-card.has-media {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      align-items: start;
+    }
   }
 
   .project-card.is-wip {
     border-style: dashed;
   }
 
-  .project-media {
-    aspect-ratio: 16 / 9;
-    background: var(--bg-inset);
-    border-radius: var(--radius-md, 0.5rem);
-    overflow: hidden;
-  }
-
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .project-body {
-    padding: 1.5rem;
+  .project-text {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    flex: 1;
+    gap: 0.8rem;
+  }
+
+  /* kép nélküli kártyán se legyen túl hosszú a sor */
+  .project-card:not(.has-media) .project-text {
+    max-width: 48rem;
   }
 
   .project-heading {
@@ -117,13 +131,36 @@ const imageSrc = data.image
 
   .project-heading h3 {
     margin: 0;
-    font-size: 1.15rem;
+    font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.9rem);
+    font-weight: 600;
+  }
+
+  .project-why {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--text-high);
   }
 
   .project-summary {
-    color: var(--text-muted);
     margin: 0;
-    flex: 1;
+    color: var(--text-muted);
+  }
+
+  .project-learned {
+    margin: 0;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-inset);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .project-learned .label {
+    font-weight: 600;
+    color: var(--accent);
   }
 
   .tech-list {
@@ -136,22 +173,31 @@ const imageSrc = data.image
   }
 
   .tech-list li {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     color: var(--forest-strong);
-    background: color-mix(in srgb, var(--forest) 12%, var(--bg-elevated));
+    background: var(--accent-low);
     border-radius: 999px;
-    padding: 0.2em 0.65em;
+    padding: 0.2em 0.7em;
+  }
+
+  .tech-list li.tool {
+    color: var(--accent-2);
+    background: transparent;
+    border: 1px solid var(--accent-2);
   }
 
   .project-links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
-    margin-top: 0.25rem;
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  .project-links:empty {
+    display: none;
   }
 
   .project-links a {
@@ -160,5 +206,48 @@ const imageSrc = data.image
 
   .project-links a.link-accent {
     color: var(--accent);
+  }
+
+  .project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .zoomable {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-inset);
+    cursor: zoom-in;
+  }
+
+  .zoomable img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top left;
+  }
+
+  .zoomable:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .more-images summary {
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .more-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 0.6rem;
+    margin-top: 0.6rem;
   }
 </style>
