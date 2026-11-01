@@ -8,7 +8,7 @@ summary_en: "An English–Hungarian vocabulary app: from the sentence you enter,
 learned_hu: null
 learned_en: null
 tech: ["SvelteKit", "Tailwind CSS", "Supabase", "Gemini API"]
-tool: null
+tools: ["GLM", "Claude Code"]
 repoUrls: ["https://github.com/htgitacc/my-anki-app-showcase"]
 demoUrl: null
 images: ["/assets/projects/my-anki/01.webp", "/assets/projects/my-anki/02.webp", "/assets/projects/my-anki/03.webp"]

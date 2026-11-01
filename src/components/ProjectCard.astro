@@ -38,9 +38,9 @@ const [firstImage, ...moreImages] = data.images.map(withBase);
       </p>
     )}
 
-    {(data.tool || data.tech.length > 0) && (
+    {(data.tools.length > 0 || data.tech.length > 0) && (
       <ul class="tech-list" aria-label={t('project.tech')}>
-        {data.tool && <li class="tool">{data.tool}</li>}
+        {data.tools.map((tool) => <li class="tool">{tool}</li>)}
         {data.tech.map((tech) => (
           <li>{tech}</li>
         ))}

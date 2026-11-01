@@ -8,7 +8,7 @@ summary_en: "During a meeting, a one-line or spoken note is turned by AI into a 
 learned_hu: null
 learned_en: null
 tech: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Whisper", "n8n"]
-tool: null
+tools: ["Claude Code", "Cursor"]
 repoUrls: ["https://github.com/htgitacc/sm-task-tracker-showcase"]
 demoUrl: null
 images: ["/assets/projects/sm-task-tracker/01.webp", "/assets/projects/sm-task-tracker/02.webp", "/assets/projects/sm-task-tracker/03.webp", "/assets/projects/sm-task-tracker/04.webp"]

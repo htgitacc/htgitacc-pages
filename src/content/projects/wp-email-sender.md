@@ -8,7 +8,7 @@ summary_en: "It sends formatted emails to given addresses from the admin, and re
 learned_hu: "A kódot külön verziókezelt repóban írom, és ellenőrzött telepítéssel viszem ki az oldalra — így az élő oldalon nincs kézi javítgatás."
 learned_en: "The code lives in a separate version-controlled repo and reaches the site through a checked deployment, so there is no hand-editing on the live site."
 tech: ["WordPress", "PHP", "MySQL"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: []

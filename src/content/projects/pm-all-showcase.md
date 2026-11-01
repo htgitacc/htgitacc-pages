@@ -8,7 +8,7 @@ summary_en: "It walks you through a traditional (waterfall) project phase by pha
 learned_hu: "Egy keretrendszer attól hasznos, hogy bármelyik projekt belefér — ezért a mintaprojektet szándékosan cserélhetőre építettem."
 learned_en: "A framework is useful only if any project fits into it, so I deliberately made the sample project replaceable."
 tech: ["Python", "Streamlit", "pytest", "GitHub Actions"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/pm-all-showcase"]
 demoUrl: "https://pm-all-showcase.streamlit.app/"
 images: ["/assets/projects/pm-all/01.webp", "/assets/projects/pm-all/02.webp", "/assets/projects/pm-all/03.webp", "/assets/projects/pm-all/04.webp"]

@@ -8,7 +8,7 @@ summary_en: "It downloads and organises episodes from the official podcast feed,
 learned_hu: "Egy hobbi-eszköznél is számít a jogi keret: a program csak a hivatalos podcast-feedet használja, mert a weboldal tiltja a gépi letöltést."
 learned_en: "Even a hobby tool has a legal frame: it only uses the official podcast feed, because the website forbids automated downloading."
 tech: ["Python", "Streamlit", "RSS"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: ["/assets/projects/bbc/01.webp"]

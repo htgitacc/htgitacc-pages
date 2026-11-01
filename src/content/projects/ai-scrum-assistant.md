@@ -8,7 +8,7 @@ summary_en: "It turns a raw idea into a user story, acceptance criteria and a ri
 learned_hu: null
 learned_en: null
 tech: ["Python", "Streamlit", "Llama 3.1", "Make.com"]
-tool: null
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/ai-scrum-assistant", "https://github.com/htgitacc/ai-scrum-assistant-make-workflow"]
 demoUrl: null
 images: ["/assets/projects/ai-scrum/01.webp", "/assets/projects/ai-scrum/02.webp", "/assets/projects/ai-scrum/03.webp", "/assets/projects/ai-scrum/04.webp"]

@@ -19,19 +19,18 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
   a GPT Codex / Cursor projekteknek (Vercelen futnak; a felhasználó adja meg őket).
 - Ellenőrizve: build zöld, nincs törött kép, 390 px-en nincs vízszintes görgetés, sötét és világos téma átnézve.
 
-## NYITOTT: a felhasználó jóváhagyására vár (push előtt!)
-1. A kártyák `why_*` és `learned_*` szövegei **javaslatok** (a projektdokumentációkból): a felhasználó
-   hagyja jóvá / javítja. Ezek az ő motivációi.
-2. Eszköz-címke (`tool`) a showcase projekteken: melyik Claude Code / GPT Codex / Cursor? Ma csak a szerveresen van.
-3. Új bevezető mondat (`projects.intro` az `src/i18n/ui.ts`-ben): „Projektjeim az AI-tanulás útján: miért
-   születtek, mit csinálnak, és mit tanultam belőlük." — jóváhagyásra.
-4. A két hosszú `projects.focus` bekezdés (a felhasználó saját szövege) mobilon egy teljes képernyő: javaslat
-   2–3 mondatra rövidíteni, a teljes szöveg menjen a későbbi „saját történet" részbe.
-5. Kép nélkül: AstraDocs (a szerver headless Chromiumában nincs a Starlight rendszerbetűje → torz kép),
-   MLOps, Webhook-API, Node-RED, WordPress-plugin (nincs bemutatható / nyilvános felület).
-6. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó nézi át, **ne töröld**; a törlésről ő dönt.
-7. Tartalék kártyák kitöltése: szöveg, `tool`, `demoUrl` (Vercel), képek, `draft: false`.
-   Lehetséges jelölt: `htlearningacc/PROJ_metronom_cursor` (privát).
+## NYITOTT (2026-11-01-i egyeztetés után)
+Eldöntve: 
+- A kártyák `why_*` / `learned_*` mezői ott maradnak üresen, ahol nincs szöveg; a felhasználó utólag pótolja.
+- Eszköz-címke: a `tool` mező `tools` listává lett (`Claude Code`, `GPT Codex`, `Cursor`, `GLM`); PACE, AI scrum assistant, Selyemút: Claude Code; sm-task-tracker: Claude Code + Cursor; My Anki: GLM + Claude Code; metronóm (`tartalek-cursor-1`): Cursor.
+- Bevezető (`projects.intro`): a javasolt mondat marad.
+- `projects.focus`: 2–3 mondatra rövidítve; a teljes eredeti szöveg a `docs/focus-eredeti-szoveg.md`-ben. A felhasználó később pontosítja.
+
+Még nyitott:
+1. Kép nélkül: AstraDocs, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
+2. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
+3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm showcase (`htgitacc/PROJ_metronom_cursor_showcase`, demó: breath-metronome-phi.vercel.app) a `tartalek-cursor-1` jelöltje; a README képei elkészültek.
+4. **Push:** a felhasználó jóváhagyásával; előtte `git log origin/main..main`.
 
 ## Átadómondat új ablakhoz (másold be)
 > Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig a „NYITOTT” listán velem: a kártyák miértjeit/tanulságait, az eszköz-címkéket és a bevezetőt hagyom jóvá, utána pusholhatsz. A `_to_delete/` mappához ne nyúlj.

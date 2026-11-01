@@ -8,7 +8,7 @@ summary_en: "Referenced research, an operating model derived from it, and a work
 learned_hu: "Az ügynökök órák alatt kódolnak, a szűk keresztmetszet az emberi bírálat lesz — minden szabály ebből következik."
 learned_en: "Agents write code in hours; the bottleneck becomes human review, and every rule follows from that."
 tech: ["Python", "Streamlit", "AI-ügynökök"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: ["/assets/projects/sm-all/01.webp"]

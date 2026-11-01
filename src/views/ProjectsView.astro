@@ -33,7 +33,7 @@ for (const { data } of projects) {
   for (const tech of data.tech) techCount.set(tech, (techCount.get(tech) ?? 0) + 1);
 }
 const techCloud = [...techCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-const tools = new Set(projects.map(({ data }) => data.tool).filter(Boolean));
+const tools = new Set(projects.flatMap(({ data }) => data.tools));
 
 const title = `${t('projects.title')} — ${siteConfig.displayName}`;
 const description =

@@ -8,7 +8,7 @@ summary_en: "An interactive lesson: a sentence you type travels through the proc
 learned_hu: "Minden lépésnek ára van: ami a szöveg tisztításakor elveszik, azt a modell később már nem látja."
 learned_en: "Every step has a cost: whatever is lost while cleaning the text, the model can no longer see."
 tech: ["Python", "Streamlit", "spaCy", "scikit-learn", "Transformers"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: ["/assets/projects/nlp/01.webp", "/assets/projects/nlp/02.webp"]

@@ -8,7 +8,7 @@ summary_en: "A weather-forecasting model from data ingestion through a versioned
 learned_hu: "Az MLOps nem a modell pontosságáról szól, hanem a visszakövethetőségről."
 learned_en: "MLOps is not about model accuracy; it is about traceability."
 tech: ["Python", "MLflow", "scikit-learn", "pandera", "Flask", "GitHub Actions"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: []

@@ -8,7 +8,7 @@ summary_en: "A Hungarian-language documentation site with per-project menus, sea
 learned_hu: null
 learned_en: null
 tech: ["Astro", "Starlight", "Pagefind"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: []

@@ -8,7 +8,7 @@ summary_en: "An AI agent drives development from the brief to the first working 
 learned_hu: null
 learned_en: null
 tech: ["Node.js", "LLM-ügynök", "GitHub"]
-tool: null
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/pace-showcase"]
 demoUrl: null
 images: ["/assets/projects/pace/01.webp", "/assets/projects/pace/02.webp", "/assets/projects/pace/03.webp", "/assets/projects/pace/04.webp"]

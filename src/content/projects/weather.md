@@ -8,7 +8,7 @@ summary_en: "A forecast tailored to mountain locations that highlights the least
 learned_hu: "Az adat önmagában kevés: az értéket a döntést segítő kiemelés adja."
 learned_en: "Data alone is not enough; the value is in the highlight that helps you decide."
 tech: ["Python", "Streamlit", "Open-Meteo API", "Slack", "Altair"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: ["/assets/projects/weather/01.webp", "/assets/projects/weather/02.webp"]

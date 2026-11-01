@@ -8,7 +8,7 @@ summary_en: "TODO: why it was made, what it does."
 learned_hu: null
 learned_en: null
 tech: []
-tool: "GPT Codex"
+tools: ["GPT Codex"]
 repoUrls: []
 demoUrl: null
 images: []

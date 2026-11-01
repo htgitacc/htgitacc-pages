@@ -8,7 +8,7 @@ summary_en: "A cultural knowledge hub presenting seven eras of Chinese history t
 learned_hu: null
 learned_en: null
 tech: ["Astro", "Cloudflare Workers", "Decap CMS"]
-tool: null
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/selyemut-showcase"]
 demoUrl: "https://selyemut-negy-szala.htgitacc.workers.dev"
 images: ["/assets/projects/selyemut/01.webp", "/assets/projects/selyemut/02.webp", "/assets/projects/selyemut/03.webp"]

@@ -8,7 +8,7 @@ summary_en: "A Hungarian-language course on running machine-learning models in p
 learned_hu: null
 learned_en: null
 tech: ["MkDocs", "Material for MkDocs", "Playwright"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: ["/assets/projects/tudasbazis/01.webp", "/assets/projects/tudasbazis/02.webp"]

@@ -8,7 +8,7 @@ summary_en: "A local Hungarian-language model detects the tone and urgency of ea
 learned_hu: "Egy AI-asszisztens attól megbízható, hogy kimondja, ha nincs válasza — nem attól, hogy mindig mond valamit."
 learned_en: "An AI assistant earns trust by saying when it has no answer, not by always saying something."
 tech: ["Python", "Streamlit", "huBERT", "RAG", "Transformers"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/ai-sentiment-sd-showcase"]
 demoUrl: null
 images: ["/assets/projects/ai-sentiment/01.webp", "/assets/projects/ai-sentiment/02.webp", "/assets/projects/ai-sentiment/03.webp", "/assets/projects/ai-sentiment/04.webp"]

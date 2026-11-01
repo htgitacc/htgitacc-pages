@@ -8,7 +8,7 @@ summary_en: "An incoming form submission is scored instantly by a language model
 learned_hu: "A kívülről érkező adat gyanús: ellenőrizni kell, ki küldte, és azt is, hogy a szövege ne tudja átírni az AI utasításait."
 learned_en: "Data from outside is suspect: you must verify who sent it, and make sure its text cannot rewrite the AI's instructions."
 tech: ["Python", "Flask", "Typeform", "Stripe", "Asana", "Slack", "Groq"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
 images: []

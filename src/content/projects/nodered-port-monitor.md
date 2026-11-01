@@ -8,7 +8,7 @@ summary_en: "A visual dashboard showing which programs are listening on which po
 learned_hu: null
 learned_en: null
 tech: ["Node-RED", "FlowFuse Dashboard", "Node.js"]
-tool: "Claude Code"
+tools: ["Claude Code"]
 repoUrls: ["https://github.com/htgitacc/PROJ_nodered_showcase"]
 demoUrl: null
 images: []
