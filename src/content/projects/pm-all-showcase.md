@@ -1,30 +1,19 @@
 ---
-title_hu: "PM-mindenes — munkakörnyezet waterfall projektekhez"
-title_en: "PM-mindenes — Working Environment for Waterfall Projects"
-summary_hu: >
-  Egy általam összeállított munkakörnyezet projektmenedzsereknek: PMI/PMBOK
-  alapon fázisról fázisra megmutatja, milyen dokumentáció kell, miért és
-  kitől — mindegyikhez leírással, sablonnal és kitöltött mintával, és egy
-  választható PRINCE2-kiegészítő réteggel. A kitalált Xyo Kft.
-  felhőpilotja 69 dokumentummal, végig automatizált tesztekkel ellenőrizve
-  igazolja, hogy egy teljes projektfolyamat leképezhető vele — a keret
-  magát a mintaprojektet nem feltételezi, így bármely másik projekt
-  dokumentumai beletehetők.
-summary_en: >
-  A working environment I built for project managers running classic
-  (waterfall) projects: based on PMI/PMBOK, it shows phase by phase which
-  documents are needed, why, and from whom — each with a description, a
-  template and a filled-in example, plus an optional PRINCE2 layer. A
-  fictional cloud-pilot sample project with 69 documents, fully covered by
-  automated tests, proves that a complete project lifecycle can be mapped
-  with it — the framework itself is project-independent, so another
-  project's documents fit the same structure.
+title_hu: "PM-mindenes — vezetett út egy klasszikus projekten"
+title_en: "PM-mindenes — a guided path through a classic project"
+why_hu: "Egy projektmenedzser ritkán tudja fejből, melyik fázisban milyen dokumentum kell, kitől és miért. Ezt akartam egy helyre tenni."
+why_en: "A project manager rarely knows by heart which document is needed in which phase, from whom, and why. I wanted all of that in one place."
+summary_hu: "Fázisról fázisra végigvezet egy hagyományos (waterfall) projekten: minden lépéshez leírás, sablon és kitöltött minta tartozik, két teljes mintaprojekttel."
+summary_en: "It walks you through a traditional (waterfall) project phase by phase: every step comes with an explanation, a template and a filled-in example, across two complete sample projects."
+learned_hu: "Egy keretrendszer attól hasznos, hogy bármelyik projekt belefér — ezért a mintaprojektet szándékosan cserélhetőre építettem."
+learned_en: "A framework is useful only if any project fits into it, so I deliberately made the sample project replaceable."
 tech: ["Python", "Streamlit", "pytest", "GitHub Actions"]
+tool: "Claude Code"
 repoUrls: ["https://github.com/htgitacc/pm-all-showcase"]
 demoUrl: "https://pm-all-showcase.streamlit.app/"
-pdfUrls: []
-image: "/assets/projects/pm-all/01-attekintes.png"
-featured: true
+images: ["/assets/projects/pm-all/01.webp", "/assets/projects/pm-all/02.webp", "/assets/projects/pm-all/03.webp", "/assets/projects/pm-all/04.webp"]
+featured: false
 wip: false
 order: 10
+draft: false
 ---

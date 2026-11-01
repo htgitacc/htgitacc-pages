@@ -1,24 +1,19 @@
 ---
-title_hu: "Ügyfélszolgálati AI Demo — Hangulatelemzés & RAG tudásbázis"
-title_en: "Customer Service AI Demo — Sentiment Analysis & RAG Knowledge Base"
-summary_hu: >
-  Ügyfélszolgálati portál prototípus két nézettel: az ügyfél oldalán egy
-  finomhangolt magyar nyelvű (huBERT) modell elemzi a beérkező üzenetek
-  hangulatát, a munkatárs oldalán pedig egy RAG-alapú tudásbázis-keresés
-  ad választ — kitalált (hallucinált) válasz helyett inkább nyíltan
-  jelzi, ha egy adott esetre nincs eljárás.
-summary_en: >
-  A customer-service portal prototype with two views: on the customer
-  side, a fine-tuned Hungarian sentiment model (huBERT) analyzes
-  incoming messages; on the staff side, a RAG-based knowledge-base
-  search answers questions — openly flagging when no procedure exists,
-  instead of hallucinating one.
-tech: ["Python", "Streamlit", "huBERT (NYTK)", "RAG"]
+title_hu: "Ügyfélszolgálati AI — hangulatelemzés és tudásbázis"
+title_en: "Customer-service AI — sentiment and knowledge base"
+why_hu: "Be lehet-e vezetni AI-t egy ügyfélszolgálaton úgy, hogy az adatok ne kerüljenek külső nyelvi modellhez?"
+why_en: "Can a customer-service team adopt AI without sending its data to an external language model?"
+summary_hu: "Egy helyi, magyar nyelvű modell felismeri a beérkező üzenet hangvételét és sürgősségét, a munkatárs pedig a cég saját tudásbázisából kap választ."
+summary_en: "A local Hungarian-language model detects the tone and urgency of each incoming message, and staff get answers from the company's own knowledge base."
+learned_hu: "Egy AI-asszisztens attól megbízható, hogy kimondja, ha nincs válasza — nem attól, hogy mindig mond valamit."
+learned_en: "An AI assistant earns trust by saying when it has no answer, not by always saying something."
+tech: ["Python", "Streamlit", "huBERT", "RAG", "Transformers"]
+tool: "Claude Code"
 repoUrls: ["https://github.com/htgitacc/ai-sentiment-sd-showcase"]
 demoUrl: null
-pdfUrls: []
-image: null
-featured: true
+images: ["/assets/projects/ai-sentiment/01.webp", "/assets/projects/ai-sentiment/02.webp", "/assets/projects/ai-sentiment/03.webp", "/assets/projects/ai-sentiment/04.webp"]
+featured: false
 wip: false
-order: 40
+order: 30
+draft: false
 ---

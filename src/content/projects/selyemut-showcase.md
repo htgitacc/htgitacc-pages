@@ -1,22 +1,19 @@
 ---
 title_hu: "Selyemút — Négy Szála"
 title_en: "Silk Road — Four Threads"
-summary_hu: >
-  Kulturális tudástár egy magyar Taijiquan/Qigong közösségnek: négy
-  szálon (tea, kard, viselet, kalligráfia) keresztül mutatja be a kínai
-  történelmet hét korszakon át, tudatosan elválasztva a dokumentált
-  tényeket a szájhagyomány útján terjedő legendáktól.
-summary_en: >
-  A cultural knowledge base for a Hungarian Taijiquan/Qigong community:
-  explores Chinese history across seven periods through four threads
-  (tea, swords, clothing, calligraphy) — carefully separating documented
-  fact from oral-tradition legend.
-tech: ["Astro 5", "Cloudflare Workers", "Decap CMS"]
+why_hu: "Egy magyar Taijiquan/Qigong közösségnek kellett egy hely, ahol a dokumentált tények és a legendák nem keverednek."
+why_en: "A Hungarian Taijiquan/Qigong community needed a place where documented facts and legends are kept apart."
+summary_hu: "Kulturális tudástár, amely négy szálon — tea, kard, viselet, kalligráfia — mutatja be a kínai történelem hét korszakát."
+summary_en: "A cultural knowledge hub presenting seven eras of Chinese history through four threads: tea, sword, dress and calligraphy."
+learned_hu: null
+learned_en: null
+tech: ["Astro", "Cloudflare Workers", "Decap CMS"]
+tool: null
 repoUrls: ["https://github.com/htgitacc/selyemut-showcase"]
 demoUrl: "https://selyemut-negy-szala.htgitacc.workers.dev"
-pdfUrls: []
-image: null
-featured: true
+images: ["/assets/projects/selyemut/01.webp", "/assets/projects/selyemut/02.webp", "/assets/projects/selyemut/03.webp"]
+featured: false
 wip: false
-order: 60
+order: 240
+draft: false
 ---

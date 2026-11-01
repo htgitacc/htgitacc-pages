@@ -1,35 +1,19 @@
 ---
-title_hu: "SM Task Tracker — Gyorsrögzítés és AI-mérés agilis vezetőknek"
-title_en: "SM Task Tracker — Quick Capture & AI Measurement for Agile Leads"
-summary_hu: >
-  Egysoros gyorsrögzítő és mérési réteg agilis csapatvezetőknek: a meeting
-  közben pár másodperc alatt beírt — vagy, ha gépelésre nincs idő,
-  hangrögzítéssel elmondott — jegyzetekből AI alakít backlog elemet,
-  kollégának szóló üzenetet vagy retro-szintézist — mindig egy
-  review-panelen keresztül —, miközben az /insights oldal ténylegesen
-  méri, hogy ez az AI-réteg valóban spórol-e időt. Egy felvételben
-  elmondott több különálló megjegyzésből a rendszer külön
-  candidate-bejegyzést készít, ugyanazzal az Elfogadom/Eldobom elvvel.
-  Kétirányú n8n-automatizáció köti össze Slack, Google Sheets, Gmail,
-  Google Docs és Google Forms felületekkel, jórészt app-kód módosítása
-  nélkül.
-summary_en: >
-  A one-line quick-capture and measurement layer for agile team leads:
-  notes typed in seconds during a meeting — or, when there's no time to
-  type, spoken into a voice recording — get turned into backlog items,
-  teammate-facing messages, or retro syntheses by AI — always through a
-  review panel — while an /insights page actually measures whether that
-  AI layer saves real time. A single recording with several separate
-  remarks gets split into individual candidate entries, each going
-  through the same accept/discard review. Two-way n8n automation wires it
-  into Slack, Google Sheets, Gmail, Google Docs, and Google Forms, mostly
-  without touching app code.
-tech: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Drizzle ORM", "Whisper", "n8n"]
+title_hu: "SM Task Tracker — tényleg spórol időt az AI?"
+title_en: "SM Task Tracker — does AI really save time?"
+why_hu: "Valóban spórol-e időt az AI, vagy csak feltételezzük? Ezt akartam mérni, nem megérzésre mondani."
+why_en: "Does AI really save time, or do we just assume it does? I wanted to measure it rather than guess."
+summary_hu: "Meeting közben egy sorban vagy hanggal rögzített jegyzetből AI készít feladatot, üzenetet vagy retro-összefoglalót — mindig emberi jóváhagyással —, az app pedig méri, mennyi időt nyertünk."
+summary_en: "During a meeting, a one-line or spoken note is turned by AI into a task, a message or a retro summary — always with human approval — and the app measures how much time was actually saved."
+learned_hu: null
+learned_en: null
+tech: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Whisper", "n8n"]
+tool: null
 repoUrls: ["https://github.com/htgitacc/sm-task-tracker-showcase"]
 demoUrl: null
-pdfUrls: []
-image: null
-featured: true
+images: ["/assets/projects/sm-task-tracker/01.webp", "/assets/projects/sm-task-tracker/02.webp", "/assets/projects/sm-task-tracker/03.webp", "/assets/projects/sm-task-tracker/04.webp"]
+featured: false
 wip: false
-order: 30
+order: 210
+draft: false
 ---

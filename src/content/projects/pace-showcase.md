@@ -1,27 +1,20 @@
 ---
-title_hu: "PACE — Portable Agile & Continuous Execution"
-title_en: "PACE — Portable Agile & Continuous Execution"
-summary_hu: >
-  AI-alapú agilis gyorsító, amely homályos ügyféligényekből percek alatt
-  strukturált, tesztelhető backlogot épít: epicek, user story-k és
-  elfogadási kritériumok automatikus generálásával, dönté­sek
-  visszakövethető indoklásával.
-summary_en: >
-  An AI-driven agile accelerator that turns vague client requirements
-  into a structured, testable backlog in minutes — auto-generating
-  epics, user stories and acceptance criteria, with traceable reasoning
-  behind every decision.
-tech: ["Node.js", "LLM agent", "GitHub"]
+title_hu: "PACE — AI-vezérelt agilis gyorsító"
+title_en: "PACE — an AI-driven agile accelerator"
+why_hu: "Homályos ügyféligényből gyorsan, mégis ellenőrzötten eljutni egy tesztelhető backlogig — úgy, hogy minden fázis végén ember hagy jóvá."
+why_en: "To get from a vague client request to a testable backlog quickly but under control, with human sign-off at the end of every phase."
+summary_hu: "Egy AI-ügynök viszi a fejlesztés folyamatát a brieftől az első működő változatig: backlog, elfogadási kritériumok, mérés és jóváhagyási kapuk."
+summary_en: "An AI agent drives development from the brief to the first working version: backlog, acceptance criteria, measurement and approval gates."
+learned_hu: null
+learned_en: null
+tech: ["Node.js", "LLM-ügynök", "GitHub"]
+tool: null
 repoUrls: ["https://github.com/htgitacc/pace-showcase"]
 demoUrl: null
-# blob-nézet URL-ek (nem "raw"), mert a raw.githubusercontent.com útvonal
-# megbízhatatlannak bizonyult — ez a GitHub natív fájlnézete, letöltés-
-# gombbal. A pontos fájlneveket a usertől kaptam.
-pdfUrls:
-  - "https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_start.pdf"
-  - "https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_finish.pdf"
-image: null
-featured: true
+images: ["/assets/projects/pace/01.webp", "/assets/projects/pace/02.webp", "/assets/projects/pace/03.webp", "/assets/projects/pace/04.webp"]
+featured: false
 wip: false
-order: 20
+order: 200
+draft: false
+pdfUrls: ["pdfUrls: [\"https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_start.pdf\", \"https://github.com/htgitacc/pace-showcase/blob/main/PACE-bemutato-clientweb_finish.pdf\"]"]
 ---

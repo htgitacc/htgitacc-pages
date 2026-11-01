@@ -1,22 +1,19 @@
 ---
-title_hu: "My-Anki — Kontextusérzékeny szókincstanulás"
-title_en: "My-Anki — Context-aware vocabulary learning"
-summary_hu: >
-  Angol–magyar szókincstanuló app, amely a klasszikus ANKI
-  kártyarendszert AI-alapú kontextus-felismeréssel bővíti: a beírt
-  mondat alapján a szó adott jelentését, magyar fordítását és két
-  további példamondatot generál.
-summary_en: >
-  An English–Hungarian vocabulary app that extends the classic ANKI
-  flashcard system with AI context-awareness: given a sentence, it
-  generates the word's meaning in that specific context, its Hungarian
-  translation, and two more example sentences.
-tech: ["SvelteKit 5", "Tailwind CSS v4", "Supabase", "Gemini API"]
+title_hu: "My-Anki — szókártyák a mondat jelentésével"
+title_en: "My-Anki — flashcards that know the context"
+why_hu: "A szókártyán egy szónak általában egy jelentése van; nekem az kellett, amelyik a saját mondatomban szerepel."
+why_en: "A flashcard usually gives a word one meaning; I needed the one used in my own sentence."
+summary_hu: "Angol–magyar szótanuló app: a beírt mondatból AI ismeri fel a szó adott jelentését, és fordítást meg példamondatokat ad hozzá."
+summary_en: "An English–Hungarian vocabulary app: from the sentence you enter, AI identifies the word's meaning in context and adds a translation and example sentences."
+learned_hu: null
+learned_en: null
+tech: ["SvelteKit", "Tailwind CSS", "Supabase", "Gemini API"]
+tool: null
 repoUrls: ["https://github.com/htgitacc/my-anki-app-showcase"]
 demoUrl: null
-pdfUrls: []
-image: "/assets/projects/my-anki/myanki_02.jpg"
-featured: true
+images: ["/assets/projects/my-anki/01.webp", "/assets/projects/my-anki/02.webp", "/assets/projects/my-anki/03.webp"]
+featured: false
 wip: false
-order: 70
+order: 230
+draft: false
 ---
