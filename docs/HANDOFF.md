@@ -1,9 +1,9 @@
-# HANDOFF — htgitacc-pages (portfólió)
+# HANDOFF — PROJ_portfolio (GitHub: htgitacc-pages)
 
 ## Mi ez és hol fut
 A felhasználó nyilvános portfólió-oldala: https://htgitacc.github.io/htgitacc-pages/ (Astro 7, kétnyelvű,
-GitHub Pages; push a `main`-re → GitHub Actions → élő oldal). Helyi klón: `/mnt/data/ai_projects/htgitacc-pages`,
-remote `htgitacc/htgitacc-pages` (a `htlearningacc` fiók collaborator, van push-joga). A régebbi előzmények
+GitHub Pages; push a `main`-re → GitHub Actions → élő oldal). Helyi klón: `/mnt/data/ai_projects/PROJ_portfolio`,
+remote `htgitacc/htgitacc-pages` (a név az élő cím része, ezért marad: ADR 0001) (a `htlearningacc` fiók collaborator, van push-joga). A régebbi előzmények
 a gyökér `CLAUDE.md` státusznaplójában vannak.
 
 **Cél (2026-11-01):** pár napon belüli bemutató. Az olvasó döntéshozó és HR-es, nem fejlesztő: a rálátást
@@ -12,7 +12,8 @@ Golden Circle sorrendje: **miért → mit → (hogyan = címkék) → tanulság*
 A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 
 ## Hol tartunk (2026-11-01)
-- 3 helyi commit, **NINCS PUSHOLVA** (`git log origin/main..main`): színvilág, kártya + nézet, tartalom.
+- A helyi `main` **több commitot tartalmaz, mint az `origin/main`: NINCS PUSHOLVA** (`git log origin/main..main`), mert a push azonnal élesít, és a szövegek jóváhagyása még nyitott.
+- `tests/futtat.sh` zöld (13 ellenőrzés), mutációval ellenőrizve: tartalék kártya véletlen kikerülése, rossz képútvonal, e-mail cím egy szövegben: mindet elkapta.
 - Selyemút (sötét, alapértelmezett) + Füstölő (világos) színek a `PROJ_design/selyemut-fustolo-temak/tokens.json`-ból.
 - 17 kártya (12 szerveres projekt elöl, 5 showcase), 12 képes; 3 rejtett tartalék (`tartalek-*.md`, `draft: true`)
   a GPT Codex / Cursor projekteknek (Vercelen futnak; a felhasználó adja meg őket).
@@ -28,8 +29,12 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
    2–3 mondatra rövidíteni, a teljes szöveg menjen a későbbi „saját történet" részbe.
 5. Kép nélkül: AstraDocs (a szerver headless Chromiumában nincs a Starlight rendszerbetűje → torz kép),
    MLOps, Webhook-API, Node-RED, WordPress-plugin (nincs bemutatható / nyilvános felület).
-6. Tartalék kártyák kitöltése: szöveg, `tool`, `demoUrl` (Vercel), képek, `draft: false`.
+6. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó nézi át, **ne töröld**; a törlésről ő dönt.
+7. Tartalék kártyák kitöltése: szöveg, `tool`, `demoUrl` (Vercel), képek, `draft: false`.
    Lehetséges jelölt: `htlearningacc/PROJ_metronom_cursor` (privát).
+
+## Átadómondat új ablakhoz (másold be)
+> Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig a „NYITOTT” listán velem: a kártyák miértjeit/tanulságait, az eszköz-címkéket és a bevezetőt hagyom jóvá, utána pusholhatsz. A `_to_delete/` mappához ne nyúlj.
 
 ## Buktatók
 - **Minden kép és szöveg nyilvános.** Képernyőképen nem lehet e-mail cím, név, kulcs, helyszín.
@@ -47,12 +52,13 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - A képek `images` mezője gyökér-relatív (`/assets/...`), a base-t (`/htgitacc-pages/`) a `ProjectCard` fűzi hozzá.
 
 ## Parancsok
-    npm ci && npm run build                      # build (Node 22.12+)
+    tests/futtat.sh                              # build + oldal-ellenőrzés helyi előnézeten (ez a fő teszt)
+    npm ci && npm run build                      # csak build (Node 22.12+)
     npx astro preview --host 127.0.0.1 --port 8593   # előnézet; leállítás a PORT alapján, PID-del:
     kill $(ss -ltnp | grep '127.0.0.1:8593 ' | grep -o 'pid=[0-9]*' | cut -d= -f2)
 
 Képek (`tools/kepek/`): a szkriptek a `PROJ_design2/node_modules/playwright`-ot és egy külön telepített
 `sharp`-ot használnak (`npm install sharp@0.34.5` egy ideiglenes mappában).
-- `shots.js <kimenet> <jobs.json>` — képernyőképek (job: name, url, wait, click, scroll).
-- `convert.js <map.json> <public> <kontaktlap.png>` — WebP (max 1440 px) + kontaktlap az átnézéshez.
-- `oldal.js <url> <kimenet>` — az oldal képei 1440/390 px, sötét/világos, és automatikus ellenőrzés.
+- `shots.cjs <kimenet> <jobs.json>` — képernyőképek (job: name, url, wait, click, scroll).
+- `convert.cjs <map.json> <public> <kontaktlap.png>` — WebP (max 1440 px) + kontaktlap az átnézéshez.
+- `oldal.cjs <url> <kimenet>` — az oldal képei 1440/390 px, sötét/világos, és automatikus ellenőrzés.

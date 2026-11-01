@@ -1,4 +1,19 @@
-# CLAUDE.md — htgitacc-pages projekt napló
+# CLAUDE.md — PROJ_portfolio (GitHub: htgitacc-pages)
+
+A gép közös szabályai: `~/CLAUDE.md`. **Előbb azt olvasd el.** Az aktuális állapot, a nyitott döntések és a
+buktatók: `docs/HANDOFF.md`; a döntések indoklása: `docs/adr/`; a teendők: `docs/BACKLOG.md`.
+
+## Amihez ne nyúlj
+- **Nyilvános repó és élő oldal:** push a `main`-re azonnal élesít. Jóváhagyás nélkül ne pusholj; a kártyaszövegek
+  (különösen a *miért* és a *tanulság*) a felhasználó saját motivációi, ezeket ő hagyja jóvá.
+- A `_to_delete/` mappát a felhasználó nézi át, **ne töröld** (régi zip-ek, nyilvános repóban).
+- Képernyőképen és szövegben nincs személyes adat (e-mail, név, kulcs, helyszín).
+
+## Parancsok
+    tests/futtat.sh          # build + oldal-ellenőrzés helyi előnézeten
+    npm run build
+
+Az alábbi napló a projekt eredeti (2026-08-i) vezérlőpultja; a mai állapothoz a `docs/HANDOFF.md` az irányadó.
 
 Ez a fájl a projekt élő "vezérlőpultja": ide kerülnek a döntések, az architektúra, a fázisok és egy dátumozott státusznapló. Minden jövőbeli Claude-munkamenet ezt olvassa el elsőként, hogy tudja, hol tartunk.
 
@@ -205,4 +220,4 @@ CLI bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector)
 
 **2026-10-08 (10. kör)** — A user visszajelezte (a publikált oldalról készült képernyőképpel), hogy a `PM-mindenes` és a `My-Anki` kártyák képe nem illeszkedik szépen a kép nélküli kártyák mellé: mivel a `ProjectCard.astro`-ban a `project-media` blokk eredetileg a cím *fölött* volt, a képes kártyák címe lejjebb kezdődött, mint a kép nélkülieké, így a rácsban nem voltak egy szintben a címek/szövegek. Megoldás: a `project-media` blokkot a `project-body` *aljára* helyeztem át (a linkek alá) minden kártyán — így a cím, a leírás és a linkek mindig ugyanabból a magasságból indulnak, függetlenül attól, van-e kép, és a kép (ha van) a kártya alján, a szöveg után jelenik meg. A CSS-ben a `.project-media`-hoz hozzáadtam egy saját `border-radius`-t és `overflow: hidden`-t (korábban a kártya külső `overflow: hidden`-je adta a lekerekítést, mivel a kép a legfelső elem volt — most, hogy a `project-body` belsejében van, önálló lekerekítés kell neki). `npm run build` + `astro check` hibátlan. A módosított `ProjectCard.astro`-t kiküldtem, felírtam a user gépére, és a user kérésére innen is commitoltam + pusholtam. **Következő user-oldali lépés**: nincs — a push megtörtént innen.
 
-**2026-11-01 (11. kör, szerverről)** — A repó ezentúl a szerveren is él: `/mnt/data/ai_projects/htgitacc-pages` (klón, a `htlearningacc` fiók pushol). Cél: pár napon belüli bemutató HR-es/döntéshozói olvasónak, Golden Circle sorrendű kártyákkal (miért → mit → tanulság). Elkészült helyben (3 commit, **push a felhasználó jóváhagyására vár**): Selyemút/Füstölő színvilág alapból sötéten, új kártya (miért, tanulság, eszköz-címke, több kép lenyitóval, nagyítás), számok + technológia-felhő, 17 projekt (12 szerveres + 5 showcase) WebP-képekkel, 3 rejtett tartalék kártya Codex/Cursor projekteknek. A részletes állapot, a nyitott döntések és a buktatók: **`docs/HANDOFF.md`**.
+**2026-11-01 (11. kör, szerverről)** — A repó ezentúl a szerveren is él: `/mnt/data/ai_projects/PROJ_portfolio` (a mappa a gép konvenciója szerint nevezve, a GitHub-név marad: ADR 0001) (klón, a `htlearningacc` fiók pushol). Cél: pár napon belüli bemutató HR-es/döntéshozói olvasónak, Golden Circle sorrendű kártyákkal (miért → mit → tanulság). Elkészült helyben (3 commit, **push a felhasználó jóváhagyására vár**): Selyemút/Füstölő színvilág alapból sötéten, új kártya (miért, tanulság, eszköz-címke, több kép lenyitóval, nagyítás), számok + technológia-felhő, 17 projekt (12 szerveres + 5 showcase) WebP-képekkel, 3 rejtett tartalék kártya Codex/Cursor projekteknek. A részletes állapot, a nyitott döntések és a buktatók: **`docs/HANDOFF.md`**.

@@ -1,5 +1,9 @@
 # htgitacc-pages
 
+> **Név és hely.** A GitHub-repó neve `htgitacc-pages` (ez az élő cím része, ezért nem változik), a helyi
+> mappa a gép konvenciója szerint `/mnt/data/ai_projects/PROJ_portfolio`. Indoklás: [ADR 0001](docs/adr/0001-helyi-nev-proj-portfolio-a-repo-neve-marad.md).
+> Aktuális állapot és nyitott döntések: [`docs/HANDOFF.md`](docs/HANDOFF.md).
+
 Ez a repo generálja a [htgitacc](https://github.com/htgitacc) GitHub Pages bemutatkozó oldalát:
 **https://htgitacc.github.io/htgitacc-pages/**
 
@@ -19,7 +23,7 @@ belül frissül.
 |---|---|
 | Egy meglévő projekt szövege/linkjei | `src/content/projects/<projekt>.md` |
 | Új publikus projekt hozzáadása | Új `.md` fájl a `src/content/projects/` alá (másolj egy meglévőt mintának) |
-| Projekt screenshot/kép | Kép fájl a `public/assets/projects/<slug>/` alá, majd a projekt `.md` fájljában az `image:` mező kitöltése (pl. `/assets/projects/my-anki/screenshot.png`) |
+| Projekt screenshot/kép | WebP kép (max. 1440 px széles) a `public/assets/projects/<slug>/` alá, majd a projekt `.md` fájljában az `images:` lista (1–4 kép; az első mindig látszik, a többi a „Több kép” lenyitóban; pl. `["/assets/projects/weather/01.webp"]`). Képernyőkép előtt: **nem lehet rajta e-mail cím, név, kulcs, helyszín**, az oldal nyilvános |
 | Bemutató PDF(ek) egy projekthez | A projekt `.md`-jében a `pdfUrls` tömb — `github.com/<user>/<repo>/blob/main/<fájl>` formátumú linkeket használj, a `raw.githubusercontent.com/...` linkek megbízhatatlannak bizonyultak |
 | Design/szín | `src/styles/tokens.css` |
 | Bevezető szöveg a Projektek lapon | `src/i18n/ui.ts` → `projects.intro` / `projects.focus` kulcsok (HU+EN) |
@@ -32,6 +36,15 @@ feltöltése zajlik) — állítsd `false`-ra, ha a kártya készen van.
 > egyetlen aktív oldal. Ha visszahoznánk egy "Rólam" oldalt, ehhez elég egy
 > `src/pages/index.astro`-t (jelenleg a `ProjectsView`-t rendereli) visszaállítani a
 > `HomeView`-ra, és a Header nav-ját visszatölteni (l. `CLAUDE.md`).
+
+## Tesztelés
+
+    tests/futtat.sh
+
+Lefuttatja a buildet, elindít egy helyi előnézetet (127.0.0.1:8593), és valódi böngészőben ellenőrzi mindkét
+nyelvi oldalt: van-e cím és leírás minden kártyán, nincs-e törött kép, kitöltetlen (`TODO`) kártya vagy e-mail
+cím a HTML-ben, és 390 px-en nincs-e vízszintes görgetés. Az ellenőrzés a képek *tartalmát* nem látja, azt a
+képernyőképek átnézésével kell megnézni. Képkészítő szkriptek: `tools/kepek/` (lásd `docs/HANDOFF.md`).
 
 ## Fejlesztés helyben
 
