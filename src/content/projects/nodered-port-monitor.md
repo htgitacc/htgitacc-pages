@@ -9,7 +9,7 @@ learned_hu: null
 learned_en: null
 tech: ["Node-RED", "FlowFuse Dashboard", "Node.js"]
 tool: "Claude Code"
-repoUrls: []
+repoUrls: ["https://github.com/htgitacc/PROJ_nodered_showecase"]
 demoUrl: null
 images: []
 featured: false
