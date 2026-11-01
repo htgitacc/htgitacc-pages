@@ -1,98 +1,82 @@
 /*
-  Design tokens — "Selyemút + hegyvidék"
-  Világos mód: rizspapír/selyem hangulat.
-  Sötét mód: tinta-fekete éjszakai hegy hangulat.
-  Az akcentszínek (cinóbervörös, arany) a selyemúti rétegből jönnek,
-  az alaptónusok (erdőzöld, szikla) a hegyvidéki rétegből.
+  Design tokens — a PROJ_design „Selyemút és Füstölő" rendszeréből
+  (selyemut-fustolo-temak/tokens.json), a meglévő változónevekre leképezve.
 
-  Alapértelmezésben a rendszer téma-preferenciáját követi
-  (prefers-color-scheme). A ThemeToggle komponens ezt egy
-  html[data-theme="light"|"dark"] attribútummal és localStorage-dzsel
-  írja felül, ha a látogató kézzel választ.
+  Sötét = Selyemút („Tus és Hold"): tusfekete felület, halvány jáde akcentus,
+  arany díszítő szín. Világos = Füstölő: papírszín, bordó akcentus. A két téma
+  a design rendszerben egy párt alkot, ezért ez a világos mód.
+
+  Az oldal ALAPÉRTELMEZÉSBEN SÖTÉT (a felhasználó kérése, 2026-11-01), a
+  rendszer-preferenciától függetlenül. A ThemeToggle a html[data-theme]
+  attribútummal és localStorage-dzsel vált; az anti-FOUC szkript a
+  BaseLayout-ban már renderelés előtt beállítja a sötétet.
 */
 
 :root,
-:root[data-theme='light'] {
-  /* alap felület / szöveg — világos ("papír") */
-  --bg: #f6f1e6;
-  --bg-elevated: #fdfbf5;
-  --bg-inset: #efe8d8;
-  --text: #262019;
-  --text-muted: #6e6252;
-  --border: #e1d7bf;
-
-  /* akcent — selyemút */
-  --accent: #b23a2c; /* cinóbervörös */
-  --accent-strong: #8f2c22;
-  --accent-2: #ad8a35; /* tompított arany */
-
-  /* alap — hegyvidék */
-  --forest: #3c5b46;
-  --forest-strong: #2b4433;
-  --stone: #78806f;
-  --stone-soft: #a9ab98;
-
-  --shadow: 0 1px 2px rgba(38, 32, 25, 0.06), 0 8px 24px rgba(38, 32, 25, 0.06);
-
-  color-scheme: light;
-}
-
 :root[data-theme='dark'] {
-  /* alap felület / szöveg — sötét ("éjszakai hegy / tinta") */
-  --bg: #15191a;
-  --bg-elevated: #1c2224;
-  --bg-inset: #101416;
-  --text: #ece5d6;
-  --text-muted: #a49a87;
-  --border: #2a3132;
+  --bg: #0e1113; /* ad-surface */
+  --bg-header: #0a0c0e; /* ad-surface-header */
+  --bg-elevated: #1c2226; /* ad-card-bg */
+  --bg-inset: #151a1d; /* ad-surface-sunken */
+  --heading: #f2efe6; /* ad-heading = ad-text-strong */
+  --text-high: #e8e4d8; /* ad-text-high */
+  --text: #cfcbbe; /* ad-text */
+  --text-muted: #b9b6ab; /* ad-text-muted */
+  --text-faint: #7d7d75; /* ad-text-faint */
+  --border: #2a3136; /* ad-line */
 
-  /* akcent — selyemút (sötéten kicsit emeltebb fényerővel) */
-  --accent: #e0684a;
-  --accent-strong: #ef7c5c;
-  --accent-2: #d3b15f;
+  --accent: #8fc9b0; /* ad-accent, halvány jáde */
+  --accent-strong: #bfe3d3; /* ad-accent-high */
+  --accent-low: #17302a; /* ad-accent-low */
+  --accent-2: #c8a45a; /* ad-accent-2, arany: csak díszítés, sávszél, keret */
+  --on-accent: #0e1113; /* ad-on-accent */
 
-  /* alap — hegyvidék (ködös, letompított) */
-  --forest: #6f9781;
-  --forest-strong: #8bb499;
-  --stone: #8f978a;
-  --stone-soft: #57605a;
+  /* A régi „hegyvidék" nevek megmaradnak, mert a komponensek használják;
+     értékük a jáde akcentus családjából jön. */
+  --forest: #8fc9b0;
+  --forest-strong: #bfe3d3;
+  --stone: #7d7d75;
+  --stone-soft: #2a3136;
 
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.5); /* ad-shadow-card */
 
   color-scheme: dark;
 }
 
-/* rendszer sötét preferencia, ha a látogató még nem választott kézzel */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --bg: #15191a;
-    --bg-elevated: #1c2224;
-    --bg-inset: #101416;
-    --text: #ece5d6;
-    --text-muted: #a49a87;
-    --border: #2a3132;
+:root[data-theme='light'] {
+  --bg: #fdf6ec;
+  --bg-header: #f7ecd9;
+  --bg-elevated: #fffaf0;
+  --bg-inset: #f4ede0;
+  --heading: #5c1015;
+  --text-high: #231a15;
+  --text: #2b201a;
+  --text-muted: #5a483d;
+  --text-faint: #8a7560;
+  --border: #e8d9b5;
 
-    --accent: #e0684a;
-    --accent-strong: #ef7c5c;
-    --accent-2: #d3b15f;
+  --accent: #8c1f28; /* bordó */
+  --accent-strong: #5c1015;
+  --accent-low: #f7e3dc;
+  --accent-2: #c79a3f; /* borostyán: 2,4:1, szövegnek soha */
+  --on-accent: #fdf6ec;
 
-    --forest: #6f9781;
-    --forest-strong: #8bb499;
-    --stone: #8f978a;
-    --stone-soft: #57605a;
+  --forest: #3c6e5c; /* a Füstölő jáde címkeszíne */
+  --forest-strong: #3c6e5c;
+  --stone: #8a7560;
+  --stone-soft: #e8d9b5;
 
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+  --shadow: 0 6px 16px rgba(140, 31, 40, 0.08);
 
-    color-scheme: dark;
-  }
+  color-scheme: light;
 }
 
 :root {
-  --radius-sm: 6px;
+  --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-lg: 16px;
 
-  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --max-width: 68rem;

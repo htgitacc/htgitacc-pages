@@ -26,22 +26,23 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- Anti-FOUC: a téma beállítása még a renderelés előtt fut,
-         hogy ne villanjon fel a rossz (világos/sötét) mód. -->
+         hogy ne villanjon fel a rossz (világos/sötét) mód. Választás nélkül
+         sötét, mert az oldal a Selyemút sötét témával indul. -->
     <script is:inline>
       (function () {
+        var theme = 'dark';
         try {
           var stored = localStorage.getItem('htgitacc-theme');
-          if (stored === 'light' || stored === 'dark') {
-            document.documentElement.dataset.theme = stored;
-          }
+          if (stored === 'light' || stored === 'dark') theme = stored;
         } catch (e) {
-          /* localStorage nem elérhető — a CSS prefers-color-scheme fallback viszi tovább */
+          /* localStorage nem elérhető — marad a sötét alapértelmezés */
         }
+        document.documentElement.dataset.theme = theme;
       })();
     </script>
   </head>
