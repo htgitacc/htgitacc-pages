@@ -8,10 +8,10 @@ summary_en: "Turns spoken Hungarian into editable, searchable notes and shopping
 learned_hu: null
 learned_en: null
 tech: ["SvelteKit", "TypeScript", "Supabase", "PWA", "Whisper", "DeepSeek", "Playwright"]
-tools: []
+tools: ["GPT Codex"]
 repoUrls: ["https://github.com/htgitacc/PROJ_hang_mindenes_showcase"]
 demoUrl: null
-images: []
+images: ["/assets/projects/hang-mindenes/01.webp", "/assets/projects/hang-mindenes/02.webp", "/assets/projects/hang-mindenes/03.webp", "/assets/projects/hang-mindenes/04.webp"]
 featured: false
 wip: false
 order: 130

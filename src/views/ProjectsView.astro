@@ -32,6 +32,10 @@ const techCount = new Map<string, number>();
 for (const { data } of projects) {
   for (const tech of data.tech) techCount.set(tech, (techCount.get(tech) ?? 0) + 1);
 }
+for (const extra of siteConfig.extraTech) {
+  const known = [...techCount.keys()].some((k) => k.toLowerCase() === extra.toLowerCase());
+  if (!known) techCount.set(extra, 1);
+}
 const techCloud = [...techCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 const tools = new Set(projects.flatMap(({ data }) => data.tools));
 
@@ -74,6 +78,10 @@ const description =
       {techCloud.map(([tech, count]) => (
         <li class:list={{ 'is-frequent': count >= 3, 'is-common': count === 2 }}>{tech}</li>
       ))}
+    </ul>
+    <p class="models-label">{t('stats.models')}</p>
+    <ul class="models" aria-label={t('stats.models')}>
+      {siteConfig.llmModels.map((model) => <li>{model}</li>)}
     </ul>
   </section>
 
@@ -186,6 +194,26 @@ const description =
     border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
     font-size: 0.95rem;
     font-weight: 600;
+  }
+
+  .models-label {
+    margin: 0.5rem 0 -0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .models {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.1rem;
+    padding: 0;
+    margin: 0;
+    max-width: 52rem;
+    color: var(--text);
+    font-size: 0.9rem;
   }
 
   .projects-list {

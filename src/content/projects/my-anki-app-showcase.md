@@ -7,7 +7,7 @@ summary_hu: "Angol–magyar szótanuló app: a beírt mondatból AI ismeri fel a
 summary_en: "An English–Hungarian vocabulary app: from the sentence you enter, AI identifies the word's meaning in context and adds a translation and example sentences."
 learned_hu: null
 learned_en: null
-tech: ["SvelteKit", "Tailwind CSS", "Supabase", "Gemini API"]
+tech: ["SvelteKit", "Tailwind CSS", "Supabase", "API"]
 tools: ["GLM", "Claude Code"]
 repoUrls: ["https://github.com/htgitacc/my-anki-app-showcase"]
 demoUrl: null
