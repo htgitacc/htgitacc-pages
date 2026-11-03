@@ -7,7 +7,7 @@ summary_hu: "Magyar nyelvű hangból szerkeszthető, kereshető jegyzetet és be
 summary_en: "Turns spoken Hungarian into editable, searchable notes and shopping lists, as a web app installable on a phone. AI text clean-up is an optional suggestion; the original text is kept until you accept it."
 learned_hu: null
 learned_en: null
-tech: ["SvelteKit", "TypeScript", "Supabase", "PWA", "Playwright"]
+tech: ["SvelteKit", "TypeScript", "Supabase", "PWA", "Whisper", "DeepSeek", "Playwright"]
 tools: ["GPT Codex"]
 repoUrls: ["https://github.com/htgitacc/PROJ_hang_mindenes_showcase"]
 demoUrl: null

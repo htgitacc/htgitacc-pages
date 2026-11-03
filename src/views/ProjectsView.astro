@@ -36,15 +36,22 @@ for (const extra of siteConfig.extraTech) {
   const known = [...techCount.keys()].some((k) => k.toLowerCase() === extra.toLowerCase());
   if (!known) techCount.set(extra, 1);
 }
-const sortedCloud = [...techCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const lower = (v: string) => v.toLowerCase();
+const modelSet = new Set(siteConfig.llmModels.map(lower));
+const sortedCloud = [...techCount.entries()].filter(([name]) => !modelSet.has(lower(name))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 // a megadott blokkok tagjai egymás mellé, a blokk első tagjának helyére kerülnek
-const techCloud = sortedCloud.flatMap((entry) => {
+const orderedCloud = sortedCloud.flatMap((entry) => {
   const block = siteConfig.techBlocks.find((b) => b.includes(entry[0]));
   if (!block) return [entry];
   const first = sortedCloud.find(([name]) => block.includes(name))![0];
   if (first !== entry[0]) return [];
   return block.map((name) => sortedCloud.find(([n]) => n === name)).filter((e): e is [string, number] => !!e);
 });
+// a techLast elemei a felhő végére kerülnek
+const techCloud = [
+  ...orderedCloud.filter(([name]) => !siteConfig.techLast.includes(name)),
+  ...siteConfig.techLast.map((n) => orderedCloud.find(([name]) => name === n)).filter((e): e is [string, number] => !!e),
+];
 const tools = new Set(projects.flatMap(({ data }) => data.tools));
 
 const title = `${t('projects.title')} — ${siteConfig.displayName}`;

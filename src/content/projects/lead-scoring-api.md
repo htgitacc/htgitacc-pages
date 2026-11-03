@@ -7,7 +7,7 @@ summary_hu: "Egy beérkező űrlap-kitöltést egy nyelvi modell azonnal érték
 summary_en: "An incoming form submission is scored instantly by a language model and posted to the team's Slack channel; the same service also relays payment and task-management events."
 learned_hu: "A kívülről érkező adat gyanús: ellenőrizni kell, ki küldte, és azt is, hogy a szövege ne tudja átírni az AI utasításait."
 learned_en: "Data from outside is suspect: you must verify who sent it, and make sure its text cannot rewrite the AI's instructions."
-tech: ["Python", "Flask", "Typeform", "Stripe", "Asana", "Slack"]
+tech: ["Python", "Flask", "Typeform", "Stripe", "Asana", "Slack", "Groq"]
 tools: ["Claude Code"]
 repoUrls: []
 demoUrl: null
