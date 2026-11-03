@@ -6,11 +6,13 @@
 - 2026-11-01: 17 projektkártya (12 szerveres + 5 showcase) WebP-képekkel; 3 rejtett tartalék kártya.
 - 2026-11-01: PROJ_portfolio név (ADR 0001), `tests/futtat.sh`, mutációval ellenőrizve (3 szándékos hiba, mindet elkapta).
 
+- 2026-11-03: Hang Mindenes és Légzésmetronóm kártya, PACE frissítése, új kártyasorrend, technológia-felhő (extraTech, blokk, modellsor), push és deploy.
+
 ## Következő (a bemutató előtt)
 - A felhasználó jóváhagyása: *miért* és *tanulság* szövegek, eszköz-címkék a showcase projekteken, bevezető mondat
   (lista: `docs/HANDOFF.md`). **Push csak ezután.**
 - A két hosszú bevezető bekezdés (`projects.focus`) rövidítése mobilra.
-- Codex és Cursor projektek kitöltése a három tartalék kártyán (`tartalek-*.md`).
+- Codex projektek kitöltése a két tartalék kártyán (`tartalek-codex-*.md`); a Cursor-tartalék (metronóm) kész.
 - `my-anki-app-showcase` repó: a `screenshots/myanki_02.jpg` képen az e-mail cím olvasható, a képet ott kell cserélni.
 - A `_to_delete/` mappa átnézése és a törlés eldöntése (a felhasználó nézi át; régi zip-ek a nyilvános repóban).
 

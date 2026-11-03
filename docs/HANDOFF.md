@@ -11,42 +11,31 @@ mutatjuk (hány projekt, milyen problémák, milyen technológiák), nem a progr
 Golden Circle sorrendje: **miért → mit → (hogyan = címkék) → tanulság**. A miértet nem erőltetjük.
 A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 
-## Hol tartunk (2026-11-01 vége)
-- **Pusholva:** `origin/main` = `56d9296` (deploy sikeres). **Nincs pusholva** 1 commit: `95ce793` (AstraDocs → „Wiki Tudástár" átnevezés); a felhasználó kérte, hogy holnap menjen ki a sorrend módosításával együtt. Ellenőrzés: `git log origin/main..main`.
-- `tests/futtat.sh` zöld (13 ellenőrzés), mutációval ellenőrizve: tartalék kártya véletlen kikerülése, rossz képútvonal, e-mail cím egy szövegben: mindet elkapta.
-- Selyemút (sötét, alapértelmezett) + Füstölő (világos) színek a `PROJ_design/selyemut-fustolo-temak/tokens.json`-ból.
-- 17 kártya (12 szerveres projekt elöl, 5 showcase), 12 képes; 3 rejtett tartalék (`tartalek-*.md`, `draft: true`)
-  a GPT Codex / Cursor projekteknek (Vercelen futnak; a felhasználó adja meg őket).
-- Ellenőrizve: build zöld, nincs törött kép, 390 px-en nincs vízszintes görgetés, sötét és világos téma átnézve.
-- Az élő oldalt a felhasználó még nem nézte át a push után (különösen: két címkés kártya, rövidített bevezető).
 
-## Holnapra (a felhasználó kérése)
-1. **Kártyák sorrendje** módosul (`order` mező a `src/content/projects/*.md`-ben). Figyelem: a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló; döntés kell, hogy külön legyenek-e, vagy az egyik átnevezendő.
+## Hol tartunk (2026-11-03)
+- **Pusholva és élesben:** `origin/main` = `6e2f7f7`, a deploy sikeres. A helyi `main` tiszta. Ellenőrzés: `git log origin/main..main`.
+- `tests/futtat.sh` zöld. 19 látható kártya + 2 rejtett Codex-tartalék (`tartalek-codex-*.md`, `draft: true`).
+- **Mai (11-03) változások:**
+  - Új kártyák: **Hang Mindenes** (`hang-mindenes-showcase.md`, Codex, 4 kép) és **Légzésmetronóm** (`metronom-showcase.md`, Cursor, 3 kép; a korábbi `tartalek-cursor-1` helyén, demó: breath-metronome-phi.vercel.app).
+  - **PACE** frissítve a showcase repóból (új képek, szöveg; a két PDF-link kikerült, mert a repóban már nincs PDF).
+  - **Kártyasorrend** (`order`): PACE 1, Hang Mindenes 2, PM-mindenes 3, AI-first Scrum 4, Selyemút 5, Légzésmetronóm 6; utánuk a többi a korábbi sorrendben (30–230). A felhasználó jelezte, hogy a sorrend még változhat.
+  - **Technológia-felhő** (`src/views/ProjectsView.astro`, beállítások: `src/site.config.ts`): `extraTech` (Vercel, Netlify, Turso, Docker, MCP, Brevo, Agent Skills, AI-Driven DevOps, Caddy, Nginx) a kártyák címkéi mellé kerül, duplázás nélkül; `techBlocks`: a GitHub – AI-Driven DevOps – GitHub Actions egymás mellett áll; `techLast`: a Caddy és Nginx a felhő legalján. Ami a modellsorban szerepel, az a felhőből kimarad, a kártyacímkék viszont megmaradnak.
+  - Új sor a felhő alatt: **„Modellek és fejlesztési környezet"** (`llmModels` a `site.config.ts`-ben; Claude Code, Codex, Cursor, Gemini, Copilot, DeepSeek, GLM, Qwen, Kimi, Grok, Whisper, Groq, Pi, WSL, Linux, Tmux, VSCode).
+  - My Anki: a „Gemini API" címke „API"-ra cserélve (a felhasználó később pontosítja).
+
+## Még nyitott
+1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
 2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
-3. A Wiki Tudástár kártya szövegei (miért) átnézése, mert a név megváltozott.
-4. Utána push (jóváhagyással).
-
-## Új ismeretek (2026-11-01)
-- `tools` lista (nem `tool`): `src/content.config.ts` enum: Claude Code, GPT Codex, Cursor, GLM.
-- Showcase-repók README-képei: a headless Chromiumban nincs a demó betűtípusa, 390 px-en kilóg a fejléc → **412 px** (valódi Android-szélesség) a metronóm-képeknél. A GitHub-táblázat az oszlopokat a felirathoz igazítja → HTML-táblázat rögzített `<img width>`-tel, `valign="top"`, rövid feliratokkal.
-- A Node-RED kártya (`nodered-port-monitor.md`) a `htgitacc/PROJ_nodered_showcase` repóra mutat (a repó nevét a felhasználó javította; az eredeti elgépelt név megszűnt).
-
-## NYITOTT (2026-11-01-i egyeztetés után)
-Eldöntve: 
-- A kártyák `why_*` / `learned_*` mezői ott maradnak üresen, ahol nincs szöveg; a felhasználó utólag pótolja.
-- Eszköz-címke: a `tool` mező `tools` listává lett (`Claude Code`, `GPT Codex`, `Cursor`, `GLM`); PACE, AI scrum assistant, Selyemút: Claude Code; sm-task-tracker: Claude Code + Cursor; My Anki: GLM + Claude Code; metronóm (`metronom-showcase`, korábban `tartalek-cursor-1`): Cursor.
-- Bevezető (`projects.intro`): a javasolt mondat marad.
-- `projects.focus`: 2–3 mondatra rövidítve; a teljes eredeti szöveg a `docs/focus-eredeti-szoveg.md`-ben. A felhasználó később pontosítja.
-
-Még nyitott:
-1. Kép nélkül: Wiki Tudástár, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
-2. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
-3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm kártya (`metronom-showcase.md`) 2026-11-03-án kitöltve és kint van; a Codex-tartalékok (`tartalek-codex-*`) még üresek.
-4. **Push:** csak a felhasználó jóváhagyásával; előtte `git log origin/main..main` és `tests/futtat.sh`.
+3. A Wiki Tudástár kártya *miért* szövege (a név megváltozott); a Hang Mindenes és a Légzésmetronóm *miért* és *tanulság* mezője üres (a felhasználó írja).
+4. Kép nélküli kártyák: Wiki Tudástár, MLOps, Webhook-API, WordPress-plugin, Node-RED (a képeket a felhasználó készíti; showcase: `htgitacc/PROJ_nodered_showcase`).
+5. Két Codex-tartalék kártya kitöltése (szöveg, `demoUrl`, képek, `draft: false`).
+6. Az Agent Skills elnevezés („Agentic skills" is szóba jött) és a Pi besorolása a modellsorban: a felhasználó még pontosíthatja.
+7. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
+8. **Push:** csak a felhasználó jóváhagyásával; előtte `git log origin/main..main` és `tests/futtat.sh`.
 
 ## Átadómondat új ablakhoz (másold be)
 > Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig velem a „Holnapra” és a „Még nyitott” listán (kártyasorrend, focus-szöveg, Wiki Tudástár); pusholni csak a jóváhagyásom után. A `_to_delete/` mappához ne nyúlj.
-
+> Olvasd el a `/mnt/data/ai_projects/PROJ_portfolio/docs/HANDOFF.md`-t, majd menj végig velem a „Még nyitott” listán (kártyasorrend, focus-szöveg, Wiki Tudástár, tartalék kártyák); pusholni csak a jóváhagyásom után. A `_to_delete/` mappához ne nyúlj.
 ## Buktatók
 - **Minden kép és szöveg nyilvános.** Képernyőképen nem lehet e-mail cím, név, kulcs, helyszín.
   - A `my-anki-app-showcase` repó `screenshots/myanki_02.jpg` képén olvasható a felhasználó e-mail címe:
