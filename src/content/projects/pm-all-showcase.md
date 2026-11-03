@@ -14,6 +14,6 @@ demoUrl: "https://pm-all-showcase.streamlit.app/"
 images: ["/assets/projects/pm-all/01.webp", "/assets/projects/pm-all/02.webp", "/assets/projects/pm-all/03.webp", "/assets/projects/pm-all/04.webp"]
 featured: false
 wip: false
-order: 10
+order: 3
 draft: false
 ---

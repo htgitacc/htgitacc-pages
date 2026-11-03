@@ -14,6 +14,6 @@ demoUrl: "https://selyemut-negy-szala.htgitacc.workers.dev"
 images: ["/assets/projects/selyemut/01.webp", "/assets/projects/selyemut/02.webp", "/assets/projects/selyemut/03.webp"]
 featured: false
 wip: false
-order: 240
+order: 5
 draft: false
 ---

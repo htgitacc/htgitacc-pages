@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/sm-all/01.webp"]
 featured: false
 wip: false
-order: 20
+order: 4
 draft: false
 ---
