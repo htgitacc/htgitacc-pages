@@ -19,3 +19,5 @@
 - Képek az Wiki Tudástár, MLOps, Webhook-API, Node-RED és WordPress-plugin kártyákhoz, ha lesz bemutatható felület.
 - A WordPress-portfólió (a `PROJ_wpstage` repóban), ugyanebből a tartalomból; a domainváltás (`htgitacc.site`) akkor.
 - Az `ellenoriz.cjs` kiegészítése a képek tartalmának ellenőrzésével (e-mail cím a képeken: OCR), ha sok kép gyűlik.
+
+- Még nem felvett technológia-címkék (a felhasználó jegyzete, 2026-11-03; hova kerüljenek, nyitott): Linux, Tmux, WSL, Caddy, Nginx. Ha eldőlt, a `src/site.config.ts` `extraTech` listájába vagy a megfelelő kártya `tech` mezőjébe.

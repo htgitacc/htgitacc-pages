@@ -7,7 +7,7 @@ summary_hu: "Meeting közben egy sorban vagy hanggal rögzített jegyzetből AI 
 summary_en: "During a meeting, a one-line or spoken note is turned by AI into a task, a message or a retro summary — always with human approval — and the app measures how much time was actually saved."
 learned_hu: null
 learned_en: null
-tech: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Whisper", "n8n"]
+tech: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle ORM", "n8n"]
 tools: ["Claude Code", "Cursor"]
 repoUrls: ["https://github.com/htgitacc/sm-task-tracker-showcase"]
 demoUrl: null
