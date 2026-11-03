@@ -34,14 +34,14 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 ## NYITOTT (2026-11-01-i egyeztetés után)
 Eldöntve: 
 - A kártyák `why_*` / `learned_*` mezői ott maradnak üresen, ahol nincs szöveg; a felhasználó utólag pótolja.
-- Eszköz-címke: a `tool` mező `tools` listává lett (`Claude Code`, `GPT Codex`, `Cursor`, `GLM`); PACE, AI scrum assistant, Selyemút: Claude Code; sm-task-tracker: Claude Code + Cursor; My Anki: GLM + Claude Code; metronóm (`tartalek-cursor-1`): Cursor.
+- Eszköz-címke: a `tool` mező `tools` listává lett (`Claude Code`, `GPT Codex`, `Cursor`, `GLM`); PACE, AI scrum assistant, Selyemút: Claude Code; sm-task-tracker: Claude Code + Cursor; My Anki: GLM + Claude Code; metronóm (`metronom-showcase`, korábban `tartalek-cursor-1`): Cursor.
 - Bevezető (`projects.intro`): a javasolt mondat marad.
 - `projects.focus`: 2–3 mondatra rövidítve; a teljes eredeti szöveg a `docs/focus-eredeti-szoveg.md`-ben. A felhasználó később pontosítja.
 
 Még nyitott:
 1. Kép nélkül: Wiki Tudástár, MLOps, Webhook-API, WordPress-plugin; a Node-RED képeit a felhasználó készíti (showcase: `htgitacc/PROJ_nodered_showcase`, a kártyához hozzákötve).
 2. `_to_delete/` (2 régi zip + 2 `.old` fájl a nyilvános repóban): a felhasználó később törli, **ne töröld**.
-3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm showcase (`htgitacc/PROJ_metronom_cursor_showcase`, demó: breath-metronome-phi.vercel.app) a `tartalek-cursor-1` jelöltje; a README képei elkészültek.
+3. Tartalék kártyák kitöltése: szöveg, `demoUrl`, képek, `draft: false`. A metronóm kártya (`metronom-showcase.md`) 2026-11-03-án kitöltve és kint van; a Codex-tartalékok (`tartalek-codex-*`) még üresek.
 4. **Push:** csak a felhasználó jóváhagyásával; előtte `git log origin/main..main` és `tests/futtat.sh`.
 
 ## Átadómondat új ablakhoz (másold be)
