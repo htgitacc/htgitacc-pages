@@ -39,7 +39,7 @@ const projects = defineCollection({
     learned_en: z.string().nullable().default(null),
     tech: z.array(z.string()).default([]),
     // melyik AI-fejlesztőeszközzel készült (jelvényként jelenik meg)
-    tools: z.array(z.enum(['Claude Code', 'GPT Codex', 'Cursor', 'GLM'])).default([]),
+    tools: z.array(z.enum(['Claude Code', 'GPT Codex', 'Cursor', 'GLM', 'Muse Wonder'])).default([]),
     // egy projekthez több repo is tartozhat (pl. app + automatizációs workflow);
     // lehet üres is, mert több munkarepó privát, és a látogató ott 404-et kapna
     repoUrls: z.array(z.string().url()).default([]),

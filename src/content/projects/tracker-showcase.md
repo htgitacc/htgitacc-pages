@@ -8,7 +8,7 @@ summary_en: "One page showing which project is moving, which is stuck and what n
 learned_hu: null
 learned_en: null
 tech: ["Python", "FastAPI", "SQLite", "Jinja2", "GitHub API", "DeepSeek", "Slack", "Caddy", "pytest"]
-tools: []
+tools: ["Muse Wonder", "Claude Code"]
 repoUrls: ["https://github.com/htgitacc/PROJ_tracker_showcase"]
 demoUrl: null
 images: ["/assets/projects/tracker/01.webp", "/assets/projects/tracker/02.webp", "/assets/projects/tracker/03.webp", "/assets/projects/tracker/04.webp"]

@@ -23,8 +23,8 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
   - Új sor a felhő alatt: **„Modellek és fejlesztési környezet"** (`llmModels` a `site.config.ts`-ben; Claude Code, Codex, Cursor, Gemini, Copilot, DeepSeek, GLM, Qwen, Kimi, Grok, Whisper, Groq, Pi, WSL, Linux, Tmux, VSCode).
   - My Anki: a „Gemini API" címke „API"-ra cserélve (a felhasználó később pontosítja).
 
-## 2026-11-05 (helyben, nincs pusholva)
-- Új kártyák: **Projektkövető** (`tracker-showcase.md`, `PROJ_tracker_showcase`, az első kártya; eszköz-címke üres: nem tudjuk, mivel készült) és **Hibrid PM** (`hibrid-showcase.md`, `PROJ_hibrid_showcase`, Claude Code). Az **AI-first Scrum** kártya a `PROJ_sm_all_showcase` repóra és az új képekre kötve.
+## 2026-11-05 (pusholva)
+- Új kártyák: **Projektkövető** (`tracker-showcase.md`, `PROJ_tracker_showcase`, az első kártya; Muse Wonder + Claude Code) és **Hibrid PM** (`hibrid-showcase.md`, `PROJ_hibrid_showcase`, Claude Code). Az **AI-first Scrum** kártya a `PROJ_sm_all_showcase` repóra és az új képekre kötve.
 - Sorrend: Projektkövető 1, PACE 2, Hang Mindenes 3, PM-mindenes 4, AI-first Scrum 5, Hibrid PM 6, Selyemút 7, Légzésmetronóm 8; utánuk a többi.
 - Nem linkelt demók: `tracker.htgitacc.site` és `smpm.htlearningacc.abrdns.com` jelszó mögött van (a bejelentkezés oldalát kapná a látogató).
 - A `convert.cjs` harmadik paramétere a repó `public/` mappája legyen, nem a gyökér (különben `assets/` jön létre a gyökérben).
