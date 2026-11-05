@@ -7,6 +7,7 @@
 - 2026-11-01: PROJ_portfolio név (ADR 0001), `tests/futtat.sh`, mutációval ellenőrizve (3 szándékos hiba, mindet elkapta).
 
 - 2026-11-03: Hang Mindenes és Légzésmetronóm kártya, PACE frissítése, új kártyasorrend, technológia-felhő (extraTech, blokk, modellsor), push és deploy.
+- 2026-11-05: Projektkövető (első kártya) és Hibrid PM kártya, AI-first Scrum a showcase repóra kötve, új sorrend, Muse Wonder eszköz.
 
 ## Következő (a bemutató előtt)
 - A felhasználó jóváhagyása: *miért* és *tanulság* szövegek, eszköz-címkék a showcase projekteken, bevezető mondat
