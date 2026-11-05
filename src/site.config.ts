@@ -16,5 +16,5 @@ export const siteConfig = {
   techLast: ['Caddy', 'Nginx'],
   // Modellek és fejlesztési környezet (a felhő alatti sor). Ami itt szerepel,
   // az a kártyákon marad címkének, de a technológia-felhőből kimarad (nem duplázzuk).
-  llmModels: ['Claude Code', 'Codex', 'Cursor', 'Gemini', 'Copilot', 'DeepSeek', 'GLM', 'Qwen', 'Kimi', 'Grok', 'Whisper', 'Groq', 'Pi', 'WSL', 'Linux', 'Tmux', 'VSCode'],
+  llmModels: ['Claude Code', 'Codex', 'Cursor', 'Gemini', 'Copilot', 'DeepSeek', 'GLM', 'Qwen', 'Kimi', 'Grok', 'Muse Wonder', 'Whisper', 'Groq', 'Pi', 'WSL', 'Linux', 'Tmux', 'VSCode'],
 };
