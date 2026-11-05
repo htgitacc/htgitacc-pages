@@ -14,6 +14,6 @@ demoUrl: "https://breath-metronome-phi.vercel.app"
 images: ["/assets/projects/metronom/01.webp", "/assets/projects/metronom/02.webp", "/assets/projects/metronom/03.webp"]
 featured: false
 wip: false
-order: 6
+order: 8
 draft: false
 ---

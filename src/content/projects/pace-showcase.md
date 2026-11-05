@@ -14,7 +14,7 @@ demoUrl: null
 images: ["/assets/projects/pace/01.webp", "/assets/projects/pace/02.webp", "/assets/projects/pace/03.webp", "/assets/projects/pace/04.webp"]
 featured: false
 wip: false
-order: 1
+order: 2
 draft: false
 pdfUrls: []
 ---
