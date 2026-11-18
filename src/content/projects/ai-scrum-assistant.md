@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/ai-scrum/01.webp", "/assets/projects/ai-scrum/02.webp", "/assets/projects/ai-scrum/03.webp", "/assets/projects/ai-scrum/04.webp"]
 featured: false
 wip: false
-order: 15
+order: 16
 draft: false
 ---

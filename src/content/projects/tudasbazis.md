@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/tudasbazis/01.webp", "/assets/projects/tudasbazis/02.webp"]
 featured: false
 wip: false
-order: 12
+order: 13
 draft: false
 ---

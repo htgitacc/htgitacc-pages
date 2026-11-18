@@ -30,9 +30,9 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - Nem linkelt demók: `tracker.htgitacc.site` és `smpm.htlearningacc.abrdns.com` jelszó mögött van (a bejelentkezés oldalát kapná a látogató).
 - A `convert.cjs` harmadik paramétere a repó `public/` mappája legyen, nem a gyökér (különben `assets/` jön létre a gyökérben).
 
-## 2026-11-18 (helyben, nincs pusholva)
+## 2026-11-18 (pusholva)
 - **SM Task Tracker** kártya frissítve a megújult showcase repóból: natív integrációk (az n8n kikerült a szövegből és a címkékből), 4 új kép (Ma, Meetingek, AI mérés, Telegram-összefoglaló); az archivált n8n-kép kimaradt.
-- **Új sorrend** (`order` 1–21): Projektkövető, PACE, SM Task Tracker, PM-mindenes, AI-first Scrum, Hibrid PM, Hang Mindenes, Légzésmetronóm, Selyemút, NLP Lab, MLOps, MLOps és NLP tudásbázis, Hegyi időjárás, BBC, AI Scrum Assistant, Ügyfélszolgálati AI, Webhook-API, Wiki Tudástár, Node-RED, WordPress-plugin, My-Anki (utolsó, mert offline).
+- **Új sorrend** (`order` 1–21): Projektkövető, PACE, SM Task Tracker, PM-mindenes, AI-first Scrum, Hibrid PM, Hang Mindenes, Légzésmetronóm, Selyemút, Ügyfélszolgálati AI, NLP Lab, MLOps, MLOps és NLP tudásbázis, Hegyi időjárás, BBC, AI Scrum Assistant, Webhook-API, Wiki Tudástár, Node-RED, WordPress-plugin, My-Anki (utolsó, mert offline).
 
 ## Még nyitott
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?

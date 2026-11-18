@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/ai-sentiment/01.webp", "/assets/projects/ai-sentiment/02.webp", "/assets/projects/ai-sentiment/03.webp", "/assets/projects/ai-sentiment/04.webp"]
 featured: false
 wip: false
-order: 16
+order: 10
 draft: false
 ---
