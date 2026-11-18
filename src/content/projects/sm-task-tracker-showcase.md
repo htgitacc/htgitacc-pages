@@ -1,8 +1,8 @@
 ---
 title_hu: "SM Task Tracker — tényleg spórol időt az AI?"
 title_en: "SM Task Tracker — does AI really save time?"
-why_hu: "Valóban spórol-e időt az AI, vagy csak feltételezzük? Ezt akartam mérni, nem megérzésre mondani."
-why_en: "Does AI really save time, or do we just assume it does? I wanted to measure it rather than guess."
+why_hu: "Mennyire segíti a hatékonyságot egy AI-asszisztált folyamat? Azon kívül, hogy divatos, látványosan bemutatható, valóban gyorsítja, esetleg kiváltja a munkafolyamatokat? Hasznos része lehet a napi munkának?"
+why_en: "How much does an AI-assisted process really improve efficiency? Beyond being fashionable and easy to show off, does it genuinely speed up work, or even replace parts of workflows? Can it be a useful part of the daily job?"
 summary_hu: "Meeting közben egy sorban vagy hanggal rögzített jegyzetből AI készít feladatot, üzenetet vagy retro-összefoglalót — mindig emberi jóváhagyással —, az app pedig méri, mennyi időt nyertünk. A Telegram- és Google Sheets-kapcsolatok, a napi összefoglaló és az aláírt Google Form-végpont már saját kódban futnak, külső automatizációs platform nélkül."
 summary_en: "During a meeting, a one-line or spoken note is turned by AI into a task, a message or a retro summary — always with human approval — and the app measures how much time was actually saved. The Telegram and Google Sheets connections, the daily digest and the signed Google Form endpoint now run in the app's own code, with no external automation platform."
 learned_hu: null
