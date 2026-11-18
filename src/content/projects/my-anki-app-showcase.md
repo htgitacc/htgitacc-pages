@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/my-anki/01.webp", "/assets/projects/my-anki/02.webp", "/assets/projects/my-anki/03.webp"]
 featured: false
 wip: false
-order: 230
+order: 21
 draft: false
 ---

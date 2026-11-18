@@ -14,6 +14,6 @@ demoUrl: null
 images: []
 featured: false
 wip: false
-order: 120
+order: 20
 draft: false
 ---

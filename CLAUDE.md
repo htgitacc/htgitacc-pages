@@ -227,3 +227,5 @@ CLI bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector)
 **2026-11-03 (13. kör)** — Pusholva (`6e2f7f7`, deploy sikeres): új Hang Mindenes és Légzésmetronóm kártya, PACE frissítése a showcase repóból, új kártyasorrend (PACE, Hang Mindenes, PM-mindenes, AI-first Scrum, Selyemút, Légzésmetronóm), technológia-felhő kiegészítések (`extraTech`, `techBlocks`, `techLast`) és a „Modellek és fejlesztési környezet” sor. Az `95ce793` is ezzel ment ki. Nyitott pontok és részletek: **`docs/HANDOFF.md`**.
 
 **2026-11-05 (14. kör)** — Új kártyák: Projektkövető (`PROJ_tracker_showcase`, első; Muse Wonder + Claude Code) és Hibrid PM (`PROJ_hibrid_showcase`); az AI-first Scrum kártya a `PROJ_sm_all_showcase` repóra és új képekre kötve; új kártyasorrend. Pusholva (`c926ff0`). **Nincs pusholva:** `a764486` (Muse Wonder a modellsorban) és az ezt követő dokumentációs commit. Részletek: **`docs/HANDOFF.md`**.
+
+**2026-11-18 (15. kör)** — Az SM Task Tracker kártya a megújult showcase repóból frissítve (natív integrációk, új képek), új kártyasorrend (1–21, l. HANDOFF). Helyben commitolva, **nincs pusholva** (a `a764486`, `be5caa8` sem).

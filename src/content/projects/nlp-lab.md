@@ -14,6 +14,6 @@ demoUrl: null
 images: ["/assets/projects/nlp/01.webp", "/assets/projects/nlp/02.webp"]
 featured: false
 wip: false
-order: 50
+order: 10
 draft: false
 ---
