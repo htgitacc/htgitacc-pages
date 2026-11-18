@@ -1,8 +1,8 @@
 ---
 title_hu: "PACE — AI-vezérelt agilis gyorsító"
 title_en: "PACE — an AI-driven agile accelerator"
-why_hu: "Homályos ügyféligényből gyorsan, mégis ellenőrzötten eljutni egy tesztelhető backlogig — úgy, hogy minden fázis végét emberi ellenőrzés hagyja jóvá."
-why_en: "To get from a vague client request to a testable backlog quickly but under control, with a human review signing off the end of every phase."
+why_hu: "Homályos ügyféligényből gyorsan, mégis ellenőrzötten eljutni egy tesztelhető backlogig — úgy, hogy minden fázis végén emberi jóváhagyás szükséges."
+why_en: "To get from a vague client request to a testable backlog quickly but under control, with human approval required at the end of every phase."
 summary_hu: "Egy AI-ügynök viszi a fejlesztés folyamatát a brieftől az első működő változatig: backlog, elfogadási kritériumok és mérés hat kapun át, ahol egy független bíráló ügynök átnézi a munkát, a jóváhagyás pedig mindig emberé. Böngészős kezelőfelülettel, két példaprojekten kipróbálva."
 summary_en: "An AI agent drives development from the brief to the first working version: backlog, acceptance criteria and measurement across six gates, where an independent reviewer agent checks the work and approval always stays with a human. It has a browser-based console and was tried on two example projects."
 learned_hu: null
