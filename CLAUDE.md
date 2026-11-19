@@ -230,4 +230,4 @@ CLI bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector)
 
 **2026-11-18 (15. kör)** — Az SM Task Tracker kártya a megújult showcase repóból frissítve (natív integrációk, új képek), új kártyasorrend (1–21, l. HANDOFF). Az Ügyfélszolgálati AI a Selyemút mögé került (10.). Pusholva, deploy sikeres.
 
-**2026-11-19 (16. kör)** — A PM-projektek átnevezve (PM Térkép, Agent Scrum, Mérj, aztán dönts; összefoglaló: Három módszer, egy szemlélet): portfólió-kártyák és csoportfejléc, smpm kezdőoldal, az appok látható címei. Helyben commitolva, nincs pusholva és nincs újraindítva. Részletek: **`docs/HANDOFF.md`**.
+**2026-11-19 (16. kör)** — A PM-projektek átnevezve (PM Térkép, Agent Scrum, Mérj, aztán dönts; összefoglaló: Három módszer, egy szemlélet): portfólió-kártyák és csoportfejléc, smpm kezdőoldal, az appok látható címei. Pusholva, deploy sikeres; smpm közzétéve, az appok újraindítva. Részletek: **`docs/HANDOFF.md`**.
