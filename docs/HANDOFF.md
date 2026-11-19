@@ -34,6 +34,12 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - **SM Task Tracker** kártya frissítve a megújult showcase repóból: natív integrációk (az n8n kikerült a szövegből és a címkékből), 4 új kép (Ma, Meetingek, AI mérés, Telegram-összefoglaló); az archivált n8n-kép kimaradt.
 - **Új sorrend** (`order` 1–21): Projektkövető, PACE, SM Task Tracker, PM-mindenes, AI-first Scrum, Hibrid PM, Hang Mindenes, Légzésmetronóm, Selyemút, Ügyfélszolgálati AI, NLP Lab, MLOps, MLOps és NLP tudásbázis, Hegyi időjárás, BBC, AI Scrum Assistant, Webhook-API, Wiki Tudástár, Node-RED, WordPress-plugin, My-Anki (utolsó, mert offline).
 
+## 2026-11-19 — PM-projektek átnevezése (helyben commitolva, nincs pusholva)
+- Új nevek: PM-mindenes → **PM Térkép** (waterfall projektekhez), AI-first Scrum → **Agent Scrum** (AI-csapatban), Hibrid PM → **Mérj, aztán dönts** (hibrid PM AI-projektekhez); az összefoglaló: **Három módszer, egy szemlélet**.
+- Portfólió: a 3 kártya címe és egysoros leírása (`pm-all-showcase.md`, `sm-all.md`, `hibrid-showcase.md`); a három kártya fölött csoportfejléc (`projectGroups` a `site.config.ts`-ben, `group.pm.*` a `ui.ts`-ben, megjelenítés: `ProjectsView.astro`). A csoport kártyáinak egymás után kell állniuk (order 4–6).
+- Más repók (helyben commitolva, nincs pusholva): `PROJ_smpm` (kezdőoldal), `PROJ_pm_all`, `PROJ_sm_all`, `PROJ_hibrid` (látható cím: APP_TITLE/page_title, ZIP-fejléc). Élesítés: smpm `deploy/publish.sh`; appok: `systemctl restart pm-all-ui sm-all-ui hibrid-ui` — jóváhagyásra vár.
+- **Még a régi név látszik:** a kártyaképeken (app-fejlécek) és a három showcase repó README-jében/képein (`PROJ_pm_all/showcase`, `PROJ_sm_all/showcase`, `PROJ_hibrid/showcase`, `pm-all-showcase`): a következő showcase-körben cserélődik.
+
 ## Még nyitott
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
 2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
