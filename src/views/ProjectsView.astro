@@ -105,9 +105,21 @@ const description =
   </div>
 
   <section class="container projects-list">
-    {projects.map((project) => (
-      <ProjectCard project={project} />
-    ))}
+    {projects.map((project) => {
+      const group = siteConfig.projectGroups.find((g) => g.ids[0] === project.id);
+      return (
+        <>
+          {group && (
+            <div class="project-group">
+              <h2>{t(`group.${group.key}.title`)}</h2>
+              <p class="group-subtitle">{t(`group.${group.key}.subtitle`)}</p>
+              <p>{t(`group.${group.key}.text`)}</p>
+            </div>
+          )}
+          <ProjectCard project={project} />
+        </>
+      );
+    })}
   </section>
 
   <dialog class="lightbox" id="lightbox" aria-label={t('project.zoom')}>
@@ -229,6 +241,27 @@ const description =
     max-width: 52rem;
     color: var(--text);
     font-size: 0.9rem;
+  }
+
+  .project-group {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    max-width: 46rem;
+  }
+  .project-group h2 {
+    margin: 0;
+  }
+  .project-group p {
+    margin: 0.25rem 0 0;
+    color: var(--text-muted);
+  }
+  .project-group .group-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
   .projects-list {

@@ -1,10 +1,10 @@
 ---
-title_hu: "Hibrid PM — egy AI-projekt vezetése: keret, kísérlet, kapu"
-title_en: "Hybrid PM — managing an AI project: frame, experiment, gate"
+title_hu: "Mérj, aztán dönts — hibrid PM AI-projektekhez"
+title_en: "Measure, then decide — hybrid PM for AI projects"
 why_hu: null
 why_en: null
-summary_hu: "Kutatás, módszertan és működő bemutató arról, hogyan vezethető egy AI-projekt prediktív kerettel, időkeretes kísérleti szakasszal és számszerű küszöbű kapukkal. Egy kitalált vállalati chatbot-projekten végigvezetve, kipróbálható PoC-kapu számolóval és sablontárral."
-summary_en: "Research, a method and a working demo for managing an AI project with a predictive frame, a time-boxed experimental phase and gates with numeric thresholds. Walked through a fictional enterprise chatbot project, with an interactive PoC-gate calculator and a template library."
+summary_hu: "Hogyan fér meg egy projekten belül a prediktív keret, a mérésre épülő kísérleti szakasz és az agilis termékfolyamat, ha a megoldhatóság maga bizonytalan."
+summary_en: "How a predictive frame, a measurement-based experimental phase and an agile product flow can coexist within one project when feasibility itself is uncertain."
 learned_hu: null
 learned_en: null
 tech: ["Python", "Streamlit", "pytest", "Playwright", "GitHub Actions"]

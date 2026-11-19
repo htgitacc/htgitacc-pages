@@ -5,6 +5,9 @@ export const siteConfig = {
   // Töltsd ki, amint elkészült a LinkedIn poszt / profil link — amíg
   // null, a LinkedIn gomb nem jelenik meg a kezdőlapon.
   linkedinUrl: null as string | null,
+  // Összetartozó kártyák csoportja: a csoport első kártyája előtt fejléc jelenik meg
+  // (szövegek: ui.ts, `group.<key>.*`). A kártyáknak egymás után kell állniuk.
+  projectGroups: [{ key: 'pm' as const, ids: ['pm-all-showcase', 'sm-all', 'hibrid-showcase'] }],
   // Technológiák, amelyeket a projektek használnak, de nem egy-egy kártya
   // címkéi (hosting, infrastruktúra, módszer). A technológia-felhőbe kerülnek;
   // ami már egy kártyán szerepel, azt nem duplázzuk (kis/nagybetű nélkül).

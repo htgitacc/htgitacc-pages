@@ -1,10 +1,10 @@
 ---
-title_hu: "AI-first Scrum — amikor AI-ügynökök is fejlesztenek"
-title_en: "AI-first Scrum — when AI agents write code too"
+title_hu: "Agent Scrum — AI-csapatban"
+title_en: "Agent Scrum — in an AI team"
 why_hu: "Mi lesz a Scrum Master munkájával, ha a csapatban AI-ügynökök is fejlesztenek? Erre kerestem választ."
 why_en: "What happens to a Scrum Master's job when AI agents are part of the development team? That is the question I set out to answer."
-summary_hu: "Hivatkozott kutatás (36 forrás), abból levezetett működési modell és egy kipróbálható prototípus: egy kitalált csapat két iterációja, animációval és olyan szimulációval, ahol a döntéseket te hozod."
-summary_en: "Referenced research (36 sources), an operating model derived from it and a working prototype: two iterations of a fictional team, with an animation and a simulation where you make the decisions yourself."
+summary_hu: "Kutatási és koncepciós projekt működő prototípussal arról, hogyan változik a Scrum Master munkája, ha a csapatban AI-ügynökök is dolgoznak."
+summary_en: "A research and concept project with a working prototype on how a Scrum Master's work changes when AI agents are part of the team."
 learned_hu: "Az ügynökök órák alatt kódolnak, a szűk keresztmetszet az emberi bírálat lesz — minden szabály ebből következik."
 learned_en: "Agents write code in hours; the bottleneck becomes human review, and every rule follows from that."
 tech: ["Python", "Streamlit", "AI-ügynökök", "pytest", "GitHub Actions"]
