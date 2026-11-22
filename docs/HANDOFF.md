@@ -40,6 +40,9 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - Más repók (pusholva): `PROJ_smpm` (kezdőoldal), `PROJ_pm_all`, `PROJ_sm_all`, `PROJ_hibrid` (látható cím: APP_TITLE/page_title, ZIP-fejléc). Élesítve: smpm `deploy/publish.sh` (kiadás 20261119-201244), appok újraindítva (`pm-all-ui sm-all-ui hibrid-ui`).
 - **Még a régi név látszik:** a kártyaképeken (app-fejlécek) és a három showcase repó README-jében/képein (`PROJ_pm_all/showcase`, `PROJ_sm_all/showcase`, `PROJ_hibrid/showcase`, `pm-all-showcase`): a következő showcase-körben cserélődik.
 
+## 2026-11-22 — Új nyitószöveg
+- A Projektek lap nyitószövege a felhasználó megfogalmazása (az EN fordítás tőlem): „Az AI-tanulás útja", két bekezdés, „Az út négy állomása" számozott lista, záró bekezdés. A vibe coding kifejezés kikerült. Kulcsok a `ui.ts`-ben: `projects.intro`, `projects.focus` (két bekezdés `\n\n`-nel), `projects.steps.title`, `projects.steps` (soronként `Cím|szöveg`), `projects.focusEnd`; megjelenítés: `ProjectsView.astro`. A meta description is frissítve.
+
 ## Még nyitott
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
 2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
