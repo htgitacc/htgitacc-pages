@@ -47,6 +47,9 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - `techExclude` (`site.config.ts`): a felhőből kimaradnak (a kártyákon címke marad): LLM-ügynök, pytest, Open-Meteo API, GitHub API, Web Audio, Material for MkDocs, MkDocs. Új blokk egymás mellett: Astro – Starlight – Pagefind (`techBlocks`).
 - A „Modellek és fejlesztési környezet" sor kiegészült: Google AI Studio, Make.com, n8n (a Make.com így a felhőből is kimarad). Számok: 21 projekt, 56 technológia (volt 64), 5 AI-fejlesztőeszköz (a kártyák `tools` mezőiből).
 
+## 2026-11-22 — SM Task Tracker leírás pontosítása
+- A „méri, mennyi időt nyertünk” mondat helyett: az app a javaslatok sorsát méri (elfogadva / szerkesztve / eldobva). Eredmény még nincs (a képek demóadatok, a tesztelés újraindul), ezért a kártya semmilyen megtakarítást nem állít.
+
 ## Még nyitott
 0. Apró pontosítások (a felhasználó később): az „AI-fejlesztőeszköz” számláló felirata (a GLM és a Muse Wonder inkább modell); a My-Anki kártya egyedül álló „API” címkéje; a kizárt címkék (`techExclude`) a kártyákról is törlendők-e.
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
