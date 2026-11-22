@@ -233,3 +233,5 @@ CLI bejelentkezés, nincs SSH kulcs, nincs csatlakoztatott GitHub MCP connector)
 **2026-11-19 (16. kör)** — A PM-projektek átnevezve (PM Térkép, Agent Scrum, Mérj, aztán dönts; összefoglaló: Három módszer, egy szemlélet): portfólió-kártyák és csoportfejléc, smpm kezdőoldal, az appok látható címei. Pusholva, deploy sikeres; smpm közzétéve, az appok újraindítva. Részletek: **`docs/HANDOFF.md`**.
 
 **2026-11-22 (17. kör)** — Új nyitószöveg a Projektek lapon („Az AI-tanulás útja”, négy állomás, HU+EN), meta description frissítve. Pusholva. Részletek: **`docs/HANDOFF.md`**.
+
+**2026-11-22 (18. kör)** — Technológia-felhő: `techExclude`, Astro–Starlight–Pagefind blokk, a Google AI Studio, Make.com és n8n a „Modellek és fejlesztési környezet” sorba; 56 technológia. Pusholva. Részletek: **`docs/HANDOFF.md`**.

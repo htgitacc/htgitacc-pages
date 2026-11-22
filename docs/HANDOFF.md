@@ -48,6 +48,7 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 - A „Modellek és fejlesztési környezet" sor kiegészült: Google AI Studio, Make.com, n8n (a Make.com így a felhőből is kimarad). Számok: 21 projekt, 56 technológia (volt 64), 5 AI-fejlesztőeszköz (a kártyák `tools` mezőiből).
 
 ## Még nyitott
+0. Apró pontosítások (a felhasználó később): az „AI-fejlesztőeszköz” számláló felirata (a GLM és a Muse Wonder inkább modell); a My-Anki kártya egyedül álló „API” címkéje; a kizárt címkék (`techExclude`) a kártyákról is törlendők-e.
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
 2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
 3. A Wiki Tudástár kártya *miért* szövege (a név megváltozott); a Hang Mindenes és a Légzésmetronóm *miért* és *tanulság* mezője üres (a felhasználó írja).
