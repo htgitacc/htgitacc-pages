@@ -21,7 +21,7 @@ export const ui = {
     'projects.intro':
       'Az AI-tanulás útja',
     'projects.focus':
-      'Az AI-t nem elméletből, hanem építve kezdtem megismerni. Saját fejlesztési környezeteket építettem és teszteltem, és minden újabb projektbe beépítettem azt, amit az előzőből tanultam. Ahol valamit nem értettem, vagy nem úgy sikerült, ahogy elterveztem, oktatóanyagot készítettem magamnak, hogy nagyobb rálátással folytathassam, vagy nulláról újrakezdhessem.\n\nAgilis szakember szemével vizsgáltam, hol ad az AI valódi értéket egy Scrum Master, Product Owner vagy projektmenedzser munkájában, és hol válik kaotikussá, ha a folyamatot senki nem ellenőrzi, nem dokumentálja, és nem kíséri emberi jóváhagyás. Ezért az eszközeimben az AI előkészít, az ember dönt.',
+      'Az AI-t nem száraz elméletből, hanem a gyakorlaton keresztül, saját projekteken dolgozva ismertem meg. Önálló fejlesztési környezeteket hoztam létre és teszteltem, minden újabb munkába beépítve az előző lépésekből szerzett tapasztalatokat. Ha valami elsőre nem működött, vagy mélyebben meg akartam érteni egy-egy összefüggést, saját oktatóanyagokat és jegyzeteket készítettem – így már sokkal nagyobb rálátással tudtam továbbvinni a projektet, vagy akár tiszta lappal újrakezdeni.\n\nAgilis szakember szemével vizsgáltam, hol ad az AI valódi értéket egy Scrum Master, Product Owner vagy projektmenedzser munkájában, és hol válik kaotikussá, ha a folyamatot senki nem ellenőrzi, nem dokumentálja, és nem kíséri emberi jóváhagyás. Ezért az eszközeimben az AI előkészít, az ember dönt.',
     'projects.steps.title':
       'Az út négy állomása',
     'projects.steps':
@@ -68,7 +68,7 @@ export const ui = {
     'projects.intro':
       'The path of learning AI',
     'projects.focus':
-      "I began to get to know AI by building, not from theory. I built and tested my own development environments, and carried what I learned from each project into the next. Where I didn't understand something, or it didn't turn out as planned, I wrote a tutorial for myself so I could continue with a better overview, or start again from scratch.\n\nI looked at it through an agile practitioner's eyes: where AI adds real value to the work of a Scrum Master, Product Owner or project manager, and where it turns chaotic when nobody checks the process, documents it or accompanies it with human sign-off. That's why in my tools, AI prepares and the human decides.",
+      "I got to know AI not through dry theory but through practice, working on my own projects. I created and tested my own development environments, building what I learned from each step into every new piece of work. When something didn't work at first, or I wanted to understand a connection more deeply, I wrote my own tutorials and notes – so I could carry the project on with a much better overview, or even start again with a clean slate.\n\nI looked at it through an agile practitioner's eyes: where AI adds real value to the work of a Scrum Master, Product Owner or project manager, and where it turns chaotic when nobody checks the process, documents it or accompanies it with human sign-off. That's why in my tools, AI prepares and the human decides.",
     'projects.steps.title':
       "The four stages of the path",
     'projects.steps':
