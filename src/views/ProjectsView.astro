@@ -17,6 +17,9 @@ const t = useTranslations(lang);
 // A 'projects.focus' szöveg üres sorral elválasztott bekezdésekből áll
 // (ui.ts-ben '\n\n'-nel), itt bontjuk külön <p> elemekre.
 const focusParagraphs = t('projects.focus').split('\n\n');
+const steps = t('projects.steps')
+  .split('\n')
+  .map((line) => line.split('|') as [string, string]);
 
 // A tartalék (draft) kártyák nem jelennek meg, amíg nincsenek kitöltve.
 const allProjects = await getCollection('projects', ({ data }) => !data.draft);
@@ -69,6 +72,13 @@ const description =
     {focusParagraphs.map((paragraph) => (
       <p class="focus">{paragraph}</p>
     ))}
+    <h2 class="steps-title">{t('projects.steps.title')}</h2>
+    <ol class="steps">
+      {steps.map(([lead, text]) => (
+        <li><strong>{lead}.</strong> {text}</li>
+      ))}
+    </ol>
+    <p class="focus">{t('projects.focusEnd')}</p>
   </section>
 
   <section class="container overview" aria-label={t('projects.overview')}>
@@ -164,6 +174,22 @@ const description =
   .focus {
     color: var(--text-muted);
     font-size: 1.02rem;
+  }
+  .steps-title {
+    font-size: 1.15rem;
+    margin-block: 1.5rem 0.5rem;
+  }
+  .steps {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+  }
+  .steps li {
+    margin-block: 0.5rem;
+  }
+  .steps strong {
+    color: var(--text-high);
   }
 
   .overview {

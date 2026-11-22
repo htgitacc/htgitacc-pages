@@ -19,9 +19,15 @@ export const ui = {
     'projects.title': 'Projektek',
     'projects.eyebrow': 'Amin dolgoztam',
     'projects.intro':
-      'Projektjeim az AI-tanulás útján: miért születtek, mit csinálnak, és mit tanultam belőlük.',
+      'Az AI-tanulás útja',
     'projects.focus':
-      'Az utóbbi hónapokban azt vizsgáltam, milyen valódi értéket ad az AI egy agilis szakember (Scrum Master, Product Owner, projektmenedzser) munkájában: hol gyorsít, és hol válik kaotikussá, ha a folyamatok nincsenek ellenőrizve, dokumentálva és emberi jóváhagyással kísérve. Az alábbi projektek ezt az utat mutatják, AI-asszisztált fejlesztéssel (vibe coding) készültek, néhány hobbi projekt is akad köztük.',
+      'Az AI-t nem elméletből, hanem építve kezdtem megismerni. Saját fejlesztési környezeteket építettem és teszteltem, és minden újabb projektbe beépítettem azt, amit az előzőből tanultam. Ahol valamit nem értettem, vagy nem úgy sikerült, ahogy elterveztem, oktatóanyagot készítettem magamnak, hogy nagyobb rálátással folytathassam, vagy nulláról újrakezdhessem.\n\nAgilis szakember szemével vizsgáltam, hol ad az AI valódi értéket egy Scrum Master, Product Owner vagy projektmenedzser munkájában, és hol válik kaotikussá, ha a folyamatot senki nem ellenőrzi, nem dokumentálja, és nem kíséri emberi jóváhagyás. Ezért az eszközeimben az AI előkészít, az ember dönt.',
+    'projects.steps.title':
+      'Az út négy állomása',
+    'projects.steps':
+      'Építés és tanulás|Saját környezetek, első automatizálások Make és n8n alapon. Fő fejlesztőeszközöm a Claude Code, mellette a ChatGPT Codexet használom, és a két eszközzel rendszeresen ellenőriztetem egymás kódját.\nSaját kódra váltás|Ahol egy low-code megoldás kinőtte a kereteit, saját, tesztelhető integrációkra cseréltem.\nMegbízható működés|Emberi jóváhagyási pontok, automatizált tesztek, verziókövetés, és dokumentáció, amit a fejlesztéssel együtt írok, nem utólag.\nTudásátadás|Ahogy a magabiztosságom nőtt, a környezetem egyre többször kért tőlem segítséget. Ma személyesen és kisebb csoportokban tanítom, amit megtanultam, és saját oktatóanyagokat készítek.',
+    'projects.focusEnd':
+      'Az alábbi projektek ezt az utat mutatják: miért születtek, mit csinálnak, és mit tanultam belőlük. AI-asszisztáltan készültek, néhány hobbiprojekt is akad köztük.',
     'projects.wip':
       'Az oldal folyamatosan épül és fejlődik, jelenleg a projektmunkák bemutatása áll a középpontban.',
     'project.repo': 'Repó',
@@ -60,9 +66,15 @@ export const ui = {
     'projects.title': 'Projects',
     'projects.eyebrow': "What I've been building",
     'projects.intro':
-      'My projects along the AI learning path: why they were made, what they do, and what I learned from them.',
+      'The path of learning AI',
     'projects.focus':
-      "Over the past few months I've explored what real value AI adds to the everyday work of an agile practitioner (Scrum Master, Product Owner, project manager): where it speeds the work up, and where it turns chaotic when the processes aren't checked, documented and accompanied by human sign-off. The projects below trace that path; they were built with AI-assisted development (vibe coding), and a few hobby projects are among them.",
+      "I began to get to know AI by building, not from theory. I built and tested my own development environments, and carried what I learned from each project into the next. Where I didn't understand something, or it didn't turn out as planned, I wrote a tutorial for myself so I could continue with a better overview, or start again from scratch.\n\nI looked at it through an agile practitioner's eyes: where AI adds real value to the work of a Scrum Master, Product Owner or project manager, and where it turns chaotic when nobody checks the process, documents it or accompanies it with human sign-off. That's why in my tools, AI prepares and the human decides.",
+    'projects.steps.title':
+      "The four stages of the path",
+    'projects.steps':
+      "Building and learning|My own environments, first automations on Make and n8n. My main development tool is Claude Code, alongside ChatGPT Codex, and I regularly have the two review each other's code.\nMoving to my own code|Where a low-code solution outgrew its limits, I replaced it with my own, testable integrations.\nReliable operation|Human approval points, automated tests, version control, and documentation that I write together with the development, not afterwards.\nSharing knowledge|As my confidence grew, people around me asked for help more and more often. Today I teach what I've learned, in person and in small groups, and I create my own tutorials.",
+    'projects.focusEnd':
+      "The projects below trace this path: why they were made, what they do, and what I learned from them. They were built with AI assistance, and a few hobby projects are among them.",
     'projects.wip':
       'The site is continuously growing and evolving — right now the focus is on showcasing the project work.',
     'project.repo': 'Repo',
