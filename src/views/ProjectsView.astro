@@ -40,7 +40,7 @@ for (const extra of siteConfig.extraTech) {
   if (!known) techCount.set(extra, 1);
 }
 const lower = (v: string) => v.toLowerCase();
-const modelSet = new Set(siteConfig.llmModels.map(lower));
+const modelSet = new Set([...siteConfig.llmModels, ...siteConfig.techExclude].map(lower));
 const sortedCloud = [...techCount.entries()].filter(([name]) => !modelSet.has(lower(name))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 // a megadott blokkok tagjai egymás mellé, a blokk első tagjának helyére kerülnek
 const orderedCloud = sortedCloud.flatMap((entry) => {

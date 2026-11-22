@@ -14,10 +14,15 @@ export const siteConfig = {
   extraTech: ['Vercel', 'Netlify', 'Turso', 'Docker', 'MCP', 'Brevo', 'Agent Skills', 'AI-Driven DevOps', 'Caddy', 'Nginx'],
   // Egymás mellé rendezett technológia-blokkok a felhőben (a blokk a tagjai közül
   // az elöl állónak megfelelő helyre kerül, a megadott sorrendben).
-  techBlocks: [['GitHub', 'AI-Driven DevOps', 'GitHub Actions']],
+  techBlocks: [
+    ['GitHub', 'AI-Driven DevOps', 'GitHub Actions'],
+    ['Astro', 'Starlight', 'Pagefind'],
+  ],
+  // Ami a kártyákon címke marad, de a technológia-felhőből kimarad (ismétlés vagy kevésbé lényeges).
+  techExclude: ['LLM-ügynök', 'pytest', 'Open-Meteo API', 'GitHub API', 'Web Audio', 'Material for MkDocs', 'MkDocs'],
   // A felhő legaljára kerülő technológiák (ebben a sorrendben).
   techLast: ['Caddy', 'Nginx'],
   // Modellek és fejlesztési környezet (a felhő alatti sor). Ami itt szerepel,
   // az a kártyákon marad címkének, de a technológia-felhőből kimarad (nem duplázzuk).
-  llmModels: ['Claude Code', 'Codex', 'Cursor', 'Gemini', 'Copilot', 'DeepSeek', 'GLM', 'Qwen', 'Kimi', 'Grok', 'Muse Wonder', 'Whisper', 'Groq', 'Pi', 'WSL', 'Linux', 'Tmux', 'VSCode'],
+  llmModels: ['Claude Code', 'Codex', 'Cursor', 'Gemini', 'Google AI Studio', 'Copilot', 'DeepSeek', 'GLM', 'Qwen', 'Kimi', 'Grok', 'Muse Wonder', 'Whisper', 'Groq', 'Pi', 'Make.com', 'n8n', 'WSL', 'Linux', 'Tmux', 'VSCode'],
 };

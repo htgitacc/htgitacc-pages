@@ -43,6 +43,10 @@ A WordPress-portfólió (wpstage) később jön, ugyanebből a tartalomból.
 ## 2026-11-22 — Új nyitószöveg
 - A Projektek lap nyitószövege a felhasználó megfogalmazása (az EN fordítás tőlem): „Az AI-tanulás útja", két bekezdés, „Az út négy állomása" számozott lista, záró bekezdés. A vibe coding kifejezés kikerült. Kulcsok a `ui.ts`-ben: `projects.intro`, `projects.focus` (két bekezdés `\n\n`-nel), `projects.steps.title`, `projects.steps` (soronként `Cím|szöveg`), `projects.focusEnd`; megjelenítés: `ProjectsView.astro`. A meta description is frissítve.
 
+## 2026-11-22 — Technológia-felhő és modellsor finomítása
+- `techExclude` (`site.config.ts`): a felhőből kimaradnak (a kártyákon címke marad): LLM-ügynök, pytest, Open-Meteo API, GitHub API, Web Audio, Material for MkDocs, MkDocs. Új blokk egymás mellett: Astro – Starlight – Pagefind (`techBlocks`).
+- A „Modellek és fejlesztési környezet" sor kiegészült: Google AI Studio, Make.com, n8n (a Make.com így a felhőből is kimarad). Számok: 21 projekt, 56 technológia (volt 64), 5 AI-fejlesztőeszköz (a kártyák `tools` mezőiből).
+
 ## Még nyitott
 1. **Kártyasorrend** végleges jóváhagyása; a „Wiki Tudástár" és az „MLOps és NLP tudásbázis" kártya neve hasonló: külön maradjanak, vagy az egyiket át kell nevezni?
 2. `projects.focus` szöveg pontosítása (a teljes eredeti: `docs/focus-eredeti-szoveg.md`).
